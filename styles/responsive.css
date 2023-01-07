@@ -1,0 +1,13 @@
+.responsive {
+  width: 100%;
+}
+
+@media screen and (min-width: 720px) {
+  .responsive {
+    width: 100%;
+    max-width: 720px;
+    margin: 40px auto;
+    padding: 0 20px;
+    background: #ccc;
+  }
+}
