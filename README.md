@@ -1,34 +1,84 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Repo 소개
 
-## Getting Started
+본 repo는 JENFRA 홈페이지를 서비스 중입니다.
 
-First, run the development server:
+- 도메인
+  - https://
 
-```bash
-npm run dev
-# or
-yarn dev
+## 목차
+
+1. [프로젝트 빌드](#how-to-use)
+2. [개발 규칙](#dev-rules)
+   1. [모니터링](#monitoring)
+   2. [브랜치](#branch)
+   3. [커밋 메시지 형식](#commit)
+3. [쓰지 않는 packages 찾기](#npm-devcheck)
+
+## 프로젝트 빌드 <a name="how-to-use"></a>
+
+**프로젝트 version**
+
+- node: v16.18.0
+- npm: 8.15.0
+
+**프로젝트 clone**
+
+```
+$ git clone git@github.com:ohcho-dev/jenfra-web.git
+$ cd jenfra-web
+$ git checkout dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+**npm 설치**
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+```
+npm install
+```
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+**개발 환경 실행**
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+```
+npm run dev
+```
 
-## Learn More
+**배포용 생성**
 
-To learn more about Next.js, take a look at the following resources:
+```
+npm run build
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+**CI/CD**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+## 개발 규칙 <a name="dev-rules"></a>
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### 모니터링 <a name="monitoring"></a>
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### 브랜치 <a name="branch"></a>
+
+- product
+  - 정의: 현재 라이브 서비스 코드와 동일 버전
+  - 직접 커밋 no!
+  - release branch 통해서 merge
+- release
+  - 정의 : 운영 서버 배포 이전 최종 테스트를 위해 사용하는 버전
+  - 직접 커밋 no!
+  - develop branch 통해서 merge
+- dev
+  - 정의 : 이 브랜치에서 feature or fix branch 따고 개발해서 pr/merge 진행
+  - 직접 커밋 no!
+- feature/* , fix/*
+  - 정의 : 협업을 위해 dev브랜치로부터 상황(feature, fix, chore 등)에 맞게 개개인의 브랜치를 생성하여 개발 진행
+
+### 커밋 메시지 형식 <a name="commit"></a>
+
+깃 커밋 메시지 앞에 어떤 유형의 커밋인지 정의를 권장합니다.
+
+- feat: 기능 개발
+- fix: 버그 픽스
+- refact: 리팩토링
+- typo: 문구 수정
+- test: 테스링 관련
+- docs: 문서 작업
+- chore: 기타 todo
+- rese: 조사 할 것들
