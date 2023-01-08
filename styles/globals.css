@@ -5,11 +5,11 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell,
     Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 
-  background-color: #fafafa;
-  /* rem 단위로 css를 적용하여 모든 모바일 디바이스에 대해 같은 모양의 디자인이 보여지도록 설정하고자 함(media query를 사용하지 않는 방법!) */
+  background-color: #fff;
+  /* rem 단위로 css를 적용하여 모든 모바일 디바이스 해상도에 대해 같은 모양의 디자인이 보여지도록 설정하고자 함(상세내용 구현 시 media query 사용 금지!) */
   /* 1rem = 10px 입니다 */
   /* fontsize, lineheight, width, height, margin, padding 값을 rem으로 적용합시다! */
-  /* 디자인파일 768px 기준일 때 10px을 vw로 변환한 값 (디자인파일 width 크기에 따라 수정 가능) */
+  /* 디자인파일 width=768px 기준일 때 10px을 vw로 변환한 값 */
   font-size: 1.30208333vw;
 }
 
@@ -35,9 +35,12 @@ a {
     /* -webkit-touch-callout: none; */
   }
 }
+
 @media screen and (min-width: 769px) {
+  /* pc의 경우 고정 크기를 제공해야 하므로 fontsize를 10px로 지정 */
   html,
   body {
     font-size: 10px;
+    background-color: #fafafa;
   }
 }
