@@ -4,7 +4,13 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell,
     Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  font-size: 10px;
+
+  background-color: #fafafa;
+  /* rem 단위로 css를 적용하여 모든 모바일 디바이스에 대해 같은 모양의 디자인이 보여지도록 설정하고자 함(media query를 사용하지 않는 방법!) */
+  /* 1rem = 10px 입니다 */
+  /* fontsize, lineheight, width, height, margin, padding 값을 rem으로 적용합시다! */
+  /* 디자인파일 768px 기준일 때 10px을 vw로 변환한 값 (디자인파일 width 크기에 따라 수정 가능) */
+  font-size: 1.30208333vw;
 }
 
 a {
@@ -16,5 +22,22 @@ a {
   box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: white) {
+@media screen and (max-width: 768px) {
+  /* 모바일에서 웹브라우저 기본효과 삭제 */
+  * {
+    /* 버튼 터치 시 나오는 음영 지우기 */
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+
+    /* 더블클릭 등의 글자 선택 막는 기능 사용 안함 */
+    /* user-select: none; */
+
+    /* 링크 long touch 기능 막기 사용 안함 */
+    /* -webkit-touch-callout: none; */
+  }
+}
+@media screen and (min-width: 769px) {
+  html,
+  body {
+    font-size: 10px;
+  }
 }
