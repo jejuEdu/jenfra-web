@@ -1,10 +1,13 @@
+import Link from 'next/link';
 import LayoutMain from '../layouts/LayoutMain';
 
 export default function Home() {
   return (
     <LayoutMain>
       <div style={{ fontSize: '3rem' }}>
-        pr 테스트! main page
+        <Link href="/survey">
+          <a>설문페이지로 이동</a>
+        </Link>
         <br />
         main page
         <br />
