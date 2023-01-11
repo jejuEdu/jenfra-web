@@ -9,7 +9,7 @@ export default function Home() {
           <a>설문페이지로 이동</a>
         </Link>
         <br />
-        main page
+        test main page
         <br />
         main page
         <br />
