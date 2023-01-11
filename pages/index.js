@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <LayoutMain>
       <div style={{ fontSize: '3rem' }}>
-        main page
+        pr 테스트! main page
         <br />
         main page
         <br />
