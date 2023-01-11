@@ -28,8 +28,8 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Actions Status Discord
-        uses: sarisia/actions-status-discord@v1.10.3
-        if: always()
-        with:
-          webhook: ${{ secrets.DISCORD_WEBHOOK }}
+      # - name: Actions Status Discord
+      #   uses: sarisia/actions-status-discord@v1.10.3
+      #   if: always()
+      #   with:
+      #     webhook: ${{ secrets.DISCORD_WEBHOOK }}
