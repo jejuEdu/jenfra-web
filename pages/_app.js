@@ -1,6 +1,5 @@
 import '../styles/reset.css';
 import '../styles/globals.css';
-import '../styles/responsive.css';
 import Head from 'next/head';
 
 function MyApp({ Component, pageProps }) {
