@@ -1,0 +1,27 @@
+# 이것은 주석입니다.
+# 담당자를 지정할 때는 github ID 혹은 github email을 넣습니다.
+# 아래부터는 예시입니다.
+
+# 프로젝트 내 모든 디렉토리 및 파일 대상으로 오너를 inyong-e로 지정할 경우.
+# * @inyong-e
+* @chucoding @JadeHyun @ohcho-dev
+
+# JS 파일에 관련된 오너로 inyong-e와 other-js-owner 두명으로 지정 할 경우.
+# *.js @inyong-e @other-js-owner
+
+# 어느 경로 상관 없이 src/atoms/button.tsx 경로의 패턴을 가진 파일의 오너를 harase로 지정할 경우.
+# src/atoms/button.tsx @harase
+
+# 레포 내 root의 '/docks/'의 하위 디렉토리 전체를 yeoul로 지정할 경우.
+# /docs/ @yeoul
+
+# 어느 경로 상관 없이 docs/ 바로 하위의 파일들에만 nunu로 할 경우.(ex: docs/readme.md)
+# 단, docs/build-app/readme.md 처럼 중첩 경로는 안됨.
+# docs/* @nunu
+
+# 어느 경로 상관 없이 docs/build-app/ 패턴을 가진 경로 하위로 모두 inyong-e와 nunu로 지정할 경우.
+# docs/build-app/ @inyong-e @nunu
+
+# 레포 내 root의 '/apps/' 하위 전체를 nunu로 지정하되, '/apps/github' 제외할 경우.
+# /apps/ @nunu
+# /apps/github
