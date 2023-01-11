@@ -1,3 +1,5 @@
+[![Monitor - b/Dev a/Build](https://github.com/jejuEdu/jenfra-web/actions/workflows/monitor-dev.yml/badge.svg)](https://github.com/jejuEdu/jenfra-web/actions/workflows/monitor-dev.yml)
+
 # Repo 소개
 
 본 repo는 JENFRA 홈페이지를 서비스 중입니다.
