@@ -28,43 +28,8 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Discord notification
-        env:
-          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
-        uses: Ilshidur/action-discord@master
+      - name: Actions Status Discord
+        uses: sarisia/actions-status-discord@v1.10.3
+        if: always()
         with:
-          args: 'The project {{ EVENT_PAYLOAD.repository.full_name }} has been deployed.'
-          # We need to provide the information of the workflow that
-          # triggered this workflow instead of this workflow.
-          workflow_name: ${{ github.event.workflow_run.name }}
-          run_id: ${{ github.event.workflow_run.id }}
-          run_number: ${{ github.event.workflow_run.run_number }}
-          status: ${{ github.event.workflow_run.conclusion }}
-          sha: ${{ github.event.workflow_run.head_sha }}
-
-          # Now we can use the information extracted in the previous step:
-          pr_author_login: ${{ steps.pr_info.outputs.pr_author_login }}
-          pr_number: ${{ steps.pr_info.outputs.pr_number }}
-          pr_title: ${{ steps.pr_info.outputs.pr_title }}
-          pr_source: ${{ steps.pr_info.outputs.pr_source }}
-
-      - name: GitHub Actions Status Embed for Discord
-        uses: SebastiaanZ/github-status-embed-for-discord@v0.2.1
-        with:
-          # Webhook token
-          webhook_id: 'test'
-          webhook_token: ${{ secrets.DISCORD_WEBHOOK }}
-
-          # We need to provide the information of the workflow that
-          # triggered this workflow instead of this workflow.
-          workflow_name: ${{ github.event.workflow_run.name }}
-          run_id: ${{ github.event.workflow_run.id }}
-          run_number: ${{ github.event.workflow_run.run_number }}
-          status: ${{ github.event.workflow_run.conclusion }}
-          sha: ${{ github.event.workflow_run.head_sha }}
-
-          # Now we can use the information extracted in the previous step:
-          pr_author_login: ${{ steps.pr_info.outputs.pr_author_login }}
-          pr_number: ${{ steps.pr_info.outputs.pr_number }}
-          pr_title: ${{ steps.pr_info.outputs.pr_title }}
-          pr_source: ${{ steps.pr_info.outputs.pr_source }}
+          webhook: ${{ secrets.DISCORD_WEBHOOK }}
