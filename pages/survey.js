@@ -27,9 +27,9 @@ const Survey = () => {
     }
   };
 
-  const handleBefore = () => {
-    setList(list - 1);
-  };
+  // const handleBefore = () => {
+  //   setList(list - 1);
+  // };
 
   const checkList = () => {
     console.log(list);
