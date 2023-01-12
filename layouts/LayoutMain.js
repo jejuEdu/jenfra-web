@@ -3,17 +3,16 @@ import styled from 'styled-components';
 const LayoutMainWrap = styled.main`
   min-height: 100vh;
   width: 100%;
-  background: #fff;
+  background: ${(props) => props.color};
 
-  @media screen and (min-width: 769px) {
-    max-width: 768px;
-    margin: 0 auto;
-    box-shadow: 0 2px 8px 0 rgb(0 0 0 / 10%);
-  }
+  display: flex; /* flex 셋팅 */
+  justify-content: center; /* 가로, 세로 가운데 정렬 */
+  align-items: center; /* 위, 아래 가운데 정렬 */
+  flex-direction: column; /* 아이템이 흐르는 방향을 위아래로 */
 `;
 
-const LayoutMain = ({ children }) => {
-  return <LayoutMainWrap>{children}</LayoutMainWrap>;
+const LayoutMain = ({ children, color }) => {
+  return <LayoutMainWrap color={color}>{children}</LayoutMainWrap>;
 };
 
 export default LayoutMain;
