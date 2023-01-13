@@ -1,124 +1,20 @@
-import Link from 'next/link';
+//import Link from 'next/link';
 import LayoutMain from '../layouts/LayoutMain';
+import Main from '../components/Main';
 
 export default function Home() {
   return (
-    <LayoutMain>
-      <div style={{ fontSize: '3rem' }}>
+    <LayoutMain color="#0dcaf0">
+      {/*<div style={{ fontSize: '3rem' }}>
         <Link href="/survey">
           <a>설문페이지로 이동</a>
         </Link>
-        <br />
-        test main page
-        <br />
-        main page
-        <br />
-        main page
-        <br />
-        main page
-        <br />
-        main page
-        <br />
-        main page
-        <br />
-        main page
-        <br />
-        main page
-        <br />
-        main page
-        <br />
-        main page
-        <br />
-        main page
-        <br />
-        main page
-        <br />
-        main page
-        <br />
-        main page
-        <br />
-        main page
-        <br />
-        main page
-        <br />
-        main page
-        <br />
-        main page
-        <br />
-        main page
-        <br />
-        main page
-        <br />
-        main page
-        <br />
-        main page
-        <br />
-        main page
-        <br />
-        main page
-        <br />
-        main page
-        <br />
-        main page
-        <br />
-        main page
-        <br />
-        main page
-        <br />
-        main page
-        <br />
-        main page
-        <br />
-        main page
-        <br />
-        main page
-        <br />
-        main page
-        <br />
-        main page
-        <br />
-        main page
-        <br />
-        main page
-        <br />
-        main page
-        <br />
-        main page
-        <br />
-        main page
-        <br />
-        main page
-        <br />
-        main page
-        <br />
-        main page
-        <br />
-        main page
-        <br />
-        main page
-        <br />
-        main page
-        <br />
-        main page
-        <br />
-        main page
-        <br />
-        main page
-        <br />
-        main page
-        <br />
-        main page
-        <br />
-        main page
-        <br />
-        main page
-        <br />
-        main page
-        <br />
-        main page
-        <br />
-        main page
-      </div>
+      </div>*/}
+      <Main>
+        <Main.Title />
+        <Main.Image />
+        <Main.Button />
+      </Main>
     </LayoutMain>
   );
 }
