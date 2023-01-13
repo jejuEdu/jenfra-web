@@ -33,4 +33,11 @@ Main.Button = (props) => {
   return <S.Button>제출</S.Button>;
 };
 
+// build error 발생: Error: Component definition is missing display name  react/display-name (eslint)
+//set display name: React devtools 확장의 구성요소에 설명적인 이름 지정하는데 사용
+Main.Title.displayName = 'MainTitle';
+Main.Image.displayName = 'MainImage';
+Main.Logo.displayName = 'MainLogo';
+Main.Button.displayName = 'MainButton';
+
 export default Main;

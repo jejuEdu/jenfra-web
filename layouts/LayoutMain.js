@@ -3,7 +3,9 @@ import styled from 'styled-components';
 const LayoutMainWrap = styled.main`
   min-height: 100vh;
   width: 100%;
-  background: ${(props) => props.color};
+  max-width: 768px;
+  margin: 0 auto;
+  background: ${(props) => props.color || '#fff'};
 
   display: flex; /* flex 셋팅 */
   justify-content: center; /* 가로, 세로 가운데 정렬 */
