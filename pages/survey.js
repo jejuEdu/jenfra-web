@@ -53,7 +53,7 @@ const Survey = () => {
           <Third next={handleNext} />
         </Wrapper>
       </Container>
-      <button onClick={checkList}>list Check</button>
+      {/* <button onClick={checkList}>list Check</button> */}
     </LayoutSurvey>
   );
 };

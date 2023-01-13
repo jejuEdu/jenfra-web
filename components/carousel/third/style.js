@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
-  margin-top: 50px;
+  margin-top: 5rem;
   width: 100%;
-  height: 500px;
+  height: 50rem;
   box-sizing: border-box;
 
   position: absolute;
