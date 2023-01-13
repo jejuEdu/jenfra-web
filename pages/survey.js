@@ -12,14 +12,19 @@ import { useState, useEffect, useRef } from 'react';
 // 실제 구현할때는 코드 분리할 예정.
 const Survey = () => {
   const [list, setList] = useState(0);
+  // 불필요한 랜더링을 유발할 수 있음.
+  // redux vs recoil vs zustand -> 결과제출 페이지 데이터관리
   const pageRef = useRef();
 
   useEffect(() => {
-    pageRef.current.style.transition = 'all 0.5s ease-in-out';
-    pageRef.current.style.transform = `translateX(-${list}00%)`;
+    // pageRef.current.style.transition = 'all 0.5s ease-in-out';
+    // pageRef.current.style.transform = `translateX(-${list}00%)`;
   }, [list]);
 
   const handleNext = () => {
+    pageRef.current.style.transition = 'all 0.5s ease-in-out';
+    pageRef.current.style.transform = `translateX(-${list}00%)`;
+
     if (list >= 2) {
       setList(0);
     } else {
@@ -27,9 +32,9 @@ const Survey = () => {
     }
   };
 
-  // const handleBefore = () => {
-  //   setList(list - 1);
-  // };
+  const handleBefore = () => {
+    setList(list - 1);
+  };
 
   const checkList = () => {
     console.log(list);
@@ -53,7 +58,7 @@ const Survey = () => {
           <Third next={handleNext} />
         </Wrapper>
       </Container>
-      {/* <button onClick={checkList}>list Check</button> */}
+      <button onClick={handleBefore}>뒤로</button>
     </LayoutSurvey>
   );
 };
