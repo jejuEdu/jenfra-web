@@ -1,10 +1,11 @@
 //import Link from 'next/link';
 import LayoutMain from '../layouts/LayoutMain';
 import Main from '../components/Main';
+import { COLORS } from '../constant/colors';
 
 export default function Home() {
   return (
-    <LayoutMain color="#0dcaf0">
+    <LayoutMain color={COLORS.bg}>
       {/*<div style={{ fontSize: '3rem' }}>
         <Link href="/survey">
           <a>설문페이지로 이동</a>
