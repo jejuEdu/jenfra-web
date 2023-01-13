@@ -5,7 +5,8 @@ const LayoutMainWrap = styled.main`
   width: 100%;
   max-width: 768px;
   margin: 0 auto;
-  background: ${(props) => props.color || '#fff'};
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.15);
+  background: ${(props) => props.color};
 
   display: flex; /* flex 셋팅 */
   justify-content: center; /* 가로, 세로 가운데 정렬 */

@@ -5,12 +5,12 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell,
     Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 
-  background-color: #fff;
+  background-color: #faf6f2;
   /* rem 단위로 css를 적용하여 모든 모바일 디바이스 해상도에 대해 같은 모양의 디자인이 보여지도록 설정하고자 함(상세내용 구현 시 media query 사용 금지!) */
   /* 1rem = 10px 입니다 */
   /* fontsize, lineheight, width, height, margin, padding 값을 rem으로 적용합시다! */
-  /* 디자인파일 width=768px 기준일 때 10px을 vw로 변환한 값 */
-  font-size: 1.30208333vw;
+  /* 디자인파일 width=390px 기준일 때 10px을 vw로 변환한 값 */
+  font-size: 2.564102564102564vw;
 }
 
 a {
@@ -41,6 +41,6 @@ a {
   html,
   body {
     font-size: 10px;
-    background-color: #fafafa;
+    background-color: #fff;
   }
 }
