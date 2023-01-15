@@ -6,15 +6,7 @@ import MainImg from '../../assets/main.png';
 const MainContext = createContext();
 
 const Main = (props) => {
-  const [state, setState] = useState({});
-
-  const update = () => {
-    setTimeout(() => {
-      setState({});
-    }, 1000);
-  };
-
-  return <MainContext.Provider value={{ state, update }}>{props.children}</MainContext.Provider>;
+  return <MainContext.Provider>{props.children}</MainContext.Provider>;
 };
 
 Main.Title = (props) => {
