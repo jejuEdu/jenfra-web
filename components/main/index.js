@@ -1,4 +1,4 @@
-import { createContext } from 'react';
+import { createContext, useState } from 'react';
 import * as S from './style';
 import Image from 'next/image';
 import MainImg from '../../assets/main.png';
