@@ -1,6 +1,6 @@
 //import Link from 'next/link';
 import LayoutMain from '../layouts/LayoutMain';
-import Main from '../components/Main';
+// import Main from '../components/Main';
 import { COLORS } from '../constant/colors';
 
 export default function Home() {
@@ -11,11 +11,11 @@ export default function Home() {
           <a>설문페이지로 이동</a>
         </Link>
       </div>*/}
-      <Main>
+      {/* <Main>
         <Main.Title />
         <Main.Image />
         <Main.Button />
-      </Main>
+      </Main> */}
     </LayoutMain>
   );
 }
