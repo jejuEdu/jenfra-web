@@ -18,6 +18,7 @@ export const CustomSelectStyle = styled.div`
   border: 1px solid rgba(0, 0, 0, 0.2);
   font-weight: 500;
   background: #fff;
+  cursor: pointer;
 
   padding: ${(props) =>
     props.size === 'small' ? '1rem 2rem' : props.size === 'medium' ? '1.5rem 3rem' : '2rem 4rem'};

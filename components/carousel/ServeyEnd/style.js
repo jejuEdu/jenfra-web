@@ -99,6 +99,7 @@ export const SubmitBtn = styled.button`
   color: #fff;
   font-size: 2rem;
   position: relative;
+  cursor: pointer;
 
   img {
     width: 1rem;
