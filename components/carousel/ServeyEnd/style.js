@@ -57,3 +57,55 @@ export const BtnArrow = styled.span`
   transform: translate(0, -50%);
   transform: rotate(90deg);
 `;
+export const AgreeWrap = styled.div`
+  width: 100%;
+  max-width: 30rem;
+`;
+export const AgreeLabel = styled.div`
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 1rem;
+`;
+export const AgreeDesc = styled.ul`
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: #666;
+  margin-bottom: 1rem;
+  padding-left: 1.5rem;
+
+  li {
+    position: relative;
+    margin-bottom: 0.6rem;
+
+    &:before {
+      display: block;
+      content: '-';
+      position: absolute;
+      top: 0;
+      left: -1.5rem;
+    }
+  }
+`;
+
+export const SubmitBtn = styled.button`
+  width: 100%;
+  max-width: 30rem;
+  height: 6rem;
+  margin-top: 5rem;
+  background: ${COLORS.point};
+  border-radius: 0.8rem;
+  border: 1px solid ${COLORS.bg};
+  color: #fff;
+  font-size: 2rem;
+  position: relative;
+
+  img {
+    width: 1rem;
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 3rem;
+    transform: rotate(180deg) translate(0, 50%);
+  }
+`;
