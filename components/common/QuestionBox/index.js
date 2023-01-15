@@ -7,7 +7,7 @@ const QuestionBox = ({ question }) => {
     <S.Container>
       <S.QuestionBox>
         {questionValue.map((item) => (
-          <p>
+          <p key={item}>
             {item}
             <br />
           </p>

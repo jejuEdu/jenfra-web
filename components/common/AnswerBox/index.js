@@ -11,13 +11,13 @@ const AnswerBox = ({ img, subject, desc }) => {
         <div>
           {desc &&
             descValue.map((item) => (
-              <S.AnswerDesc>
+              <S.AnswerDesc key={item}>
                 {item}
                 <br />
               </S.AnswerDesc>
             ))}
           {subjectValue.map((item) => (
-            <S.AnswerSubject>
+            <S.AnswerSubject key={item}>
               {item}
               <br />
             </S.AnswerSubject>
