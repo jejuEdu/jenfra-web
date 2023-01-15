@@ -54,6 +54,7 @@ export const OptionPanel = styled.div`
   border-radius: 1rem;
   border: 1px solid ${COLORS.gray_c};
   background: #fff;
+  z-index: 1;
 `;
 export const OptionItem = styled.div`
   padding: ${(props) =>
