@@ -4,6 +4,7 @@ import * as S from './style';
 import CustomSelect from '../../common/CustomSelect';
 import CustomInput from '../../common/CustomInput';
 import { ADDRESS_LIST } from '../../../constant/address';
+import CustomCheckBox from '../../common/CustomCheckBox';
 
 const SurveyEnd = () => {
   const [phoneNumber, setphoneNumber] = useState();
@@ -42,6 +43,21 @@ const SurveyEnd = () => {
           onClick={() => setOpenOptions(!openOptions)}
           style={{ minWidth: '30rem', marginBottom: '2rem' }}
         />
+
+        <S.AgreeWrap>
+          <S.AgreeLabel>개인정보수집동의</S.AgreeLabel>
+          <S.AgreeDesc>
+            <li>개인정보를 제 3자에게 제공하는 것을 동의합니다.</li>
+            <li>수집/보관 기간 : 2023.01.08 ~ 2023.02.28</li>
+          </S.AgreeDesc>
+        </S.AgreeWrap>
+
+        <CustomCheckBox text="동의함" />
+
+        <S.SubmitBtn>
+          결과 보러가기
+          <img src="/images/arrow.png" alt="" />
+        </S.SubmitBtn>
       </S.FormWrap>
     </>
   );
