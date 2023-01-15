@@ -1,4 +1,4 @@
-import { createContext } from 'react';
+import { createContext, useState } from 'react';
 import * as S from './style';
 import Image from 'next/image';
 import MainImg from '../../assets/main.png';
@@ -6,7 +6,15 @@ import MainImg from '../../assets/main.png';
 const MainContext = createContext();
 
 const Main = (props) => {
-  return <MainContext.Provider>{props.children}</MainContext.Provider>;
+  const [state, setState] = useState({});
+
+  const update = () => {
+    setTimeout(() => {
+      setState({});
+    }, 1000);
+  };
+
+  return <MainContext.Provider value={{ state, update }}>{props.children}</MainContext.Provider>;
 };
 
 Main.Title = (props) => {
