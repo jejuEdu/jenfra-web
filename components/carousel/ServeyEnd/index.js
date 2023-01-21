@@ -7,8 +7,10 @@ import { ADDRESS_LIST } from '../../../constant/address';
 import CustomCheckBox from '../../common/CustomCheckBox';
 import CustomModal from '../../common/CustomModal';
 import Character from '../../common/Character';
+import { useRouter } from 'next/router';
 
 const SurveyEnd = () => {
+  const router = useRouter();
   const [phoneNumber, setphoneNumber] = useState();
   const [openOptions, setOpenOptions] = useState(false);
   const [address, setAddress] = useState({ id: null, value: '선택' });
@@ -37,6 +39,8 @@ const SurveyEnd = () => {
     }
     console.log(phoneNumber, address);
     // store에 저장된 값과 phoneNumber, address 값을 post합시다!!
+    // post 후에 loading page로 보내주면 됩니다.
+    // router.push("/loading")
   };
 
   const handleOkClick = () => {
