@@ -1,6 +1,31 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { COLORS } from '../../../constant/colors';
 
+const characterMove = keyframes`
+  0% {
+    top: 0;
+  }
+  20% {
+    top: -3rem;
+  }
+  45% {
+    top: 0;
+  }
+`;
+const shadowMove = keyframes`
+  0% {
+    width: 9rem;
+    opacity: 1;
+  }
+  20% {
+    width: 5.6rem;
+    opacity: 0.4;
+  }
+  45% {
+    width: 9rem;
+    opacity: 1;
+  }
+`;
 export const NoticeWrap = styled.div`
   width: 100%;
   text-align: center;
@@ -8,43 +33,42 @@ export const NoticeWrap = styled.div`
 export const NoticeTitle = styled.div`
   font-size: 2.8rem;
   font-weight: 700;
-  color: ${COLORS.point};
+  line-height: 141%;
+  color: #000;
+`;
+export const Character = styled.img`
+  width: 13.2rem;
+  height: 16.6rem;
+  position: relative;
+  animation: ${characterMove} 1.5s ease-out infinite;
+`;
+export const Shadow = styled.div`
+  width: 9rem;
+  height: 1.1rem;
+  animation: ${shadowMove} 1.5s ease-out infinite;
+  background: #000;
+  margin: 0 auto;
+  border-radius: 50%;
 `;
 export const NoticeDesc = styled.div`
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: 400;
-  line-height: 4rem;
-  color: ${COLORS.gray_3};
-  margin-top: 5rem;
+  line-height: 141%;
+  color: #000;
+  margin-top: 1.7rem;
 `;
 export const ReleaseDate = styled.div`
-  font-size: 2.4rem;
+  font-size: 1.5rem;
   font-weight: 400;
-  line-height: 3rem;
-  color: ${COLORS.point};
-  margin-top: 2rem;
+  line-height: 141%;
+  color: #000;
+  margin-top: 2.1rem;
 `;
 export const FormWrap = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 5rem;
-`;
-export const CustomLabel = styled.div`
-  font-size: 2.4rem;
-  font-weight: 700;
-  color: ${COLORS.gray_3};
-  margin-bottom: 1rem;
-`;
-
-export const AddressInput = styled.div`
-  color: rgba(0, 0, 0, 0.8);
-  margin-bottom: 0.6rem;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  font-weight: 500;
-  padding: 1.5rem 3rem;
-  font-size: 2.4rem;
-  border-radius: 6rem;
+  margin-top: 4.1rem;
 `;
 
 export const SelectWrap = styled.div`
@@ -59,20 +83,24 @@ export const BtnArrow = styled.span`
 `;
 export const AgreeWrap = styled.div`
   width: 100%;
-  max-width: 30rem;
+  max-width: 34.2rem;
+  margin-top: 4.3rem;
 `;
 export const AgreeLabel = styled.div`
-  font-size: 2.4rem;
+  font-size: 1.6rem;
+  line-height: 141%;
   font-weight: 700;
-  color: #333;
-  margin-bottom: 1rem;
+  color: #000;
+  margin-bottom: 0.8rem;
+  margin-left: 1.2rem;
 `;
 export const AgreeDesc = styled.ul`
-  font-size: 1.6rem;
+  font-size: 1.5rem;
+  line-height: 206%;
   font-weight: 400;
-  color: #666;
   margin-bottom: 1rem;
   padding-left: 1.5rem;
+  color: #000000;
 
   li {
     position: relative;
@@ -90,23 +118,25 @@ export const AgreeDesc = styled.ul`
 
 export const SubmitBtn = styled.button`
   width: 100%;
-  max-width: 30rem;
-  height: 6rem;
-  margin-top: 5rem;
+  max-width: 34.2rem;
+  height: 5.2rem;
+  margin-top: 3.3rem;
   background: ${COLORS.point};
-  border-radius: 0.8rem;
-  border: 1px solid ${COLORS.bg};
+  border-radius: 3rem;
+  border: none;
   color: #fff;
   font-size: 2rem;
+  line-height: 141%;
   position: relative;
   cursor: pointer;
+  margin-bottom: 3.2rem;
 
-  img {
+  /* img {
     width: 1rem;
     display: block;
     position: absolute;
     top: 50%;
     right: 3rem;
     transform: rotate(180deg) translate(0, 50%);
-  }
+  } */
 `;

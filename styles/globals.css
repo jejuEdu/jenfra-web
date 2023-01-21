@@ -1,9 +1,17 @@
+@font-face {
+  font-family: 'NanumSquareNeo-Variable';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/NanumSquareNeo-Variable.woff2')
+    format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell,
-    Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: 'NanumSquareNeo-Variable', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 
   background-color: #faf6f2;
   /* rem 단위로 css를 적용하여 모든 모바일 디바이스 해상도에 대해 같은 모양의 디자인이 보여지도록 설정하고자 함(상세내용 구현 시 media query 사용 금지!) */
