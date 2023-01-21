@@ -6,6 +6,7 @@ import CustomInput from '../../common/CustomInput';
 import { ADDRESS_LIST } from '../../../constant/address';
 import CustomCheckBox from '../../common/CustomCheckBox';
 import CustomModal from '../../common/CustomModal';
+import Character from '../../common/Character';
 
 const SurveyEnd = () => {
   const [phoneNumber, setphoneNumber] = useState();
@@ -46,8 +47,7 @@ const SurveyEnd = () => {
     <>
       <S.NoticeWrap>
         <S.NoticeTitle>모두 완료했어요!</S.NoticeTitle>
-        <S.Character src="/images/character.svg" />
-        <S.Shadow />
+        <Character />
         <S.NoticeDesc>
           추첨을 통해
           <br />
