@@ -34,7 +34,7 @@ const SurveyEnd = () => {
       setModalTitle('개인정보 수집동의에 체크해주세요!');
       setOpenModal(true);
     }
-
+    console.log(phoneNumber, address);
     // store에 저장된 값과 phoneNumber, address 값을 post합시다!!
   };
 
@@ -46,6 +46,8 @@ const SurveyEnd = () => {
     <>
       <S.NoticeWrap>
         <S.NoticeTitle>모두 완료했어요!</S.NoticeTitle>
+        <S.Character src="/images/character.svg" />
+        <S.Shadow />
         <S.NoticeDesc>
           추첨을 통해
           <br />
@@ -61,7 +63,7 @@ const SurveyEnd = () => {
           placeholder="01012345678"
           value={phoneNumber}
           onChange={setphoneNumber}
-          style={{ minWidth: '30rem', marginBottom: '2rem' }}
+          style={{ minWidth: '34.2rem' }}
         />
 
         <CustomSelect
@@ -72,7 +74,7 @@ const SurveyEnd = () => {
           dataList={ADDRESS_LIST}
           openOptions={openOptions}
           onClick={() => setOpenOptions(!openOptions)}
-          style={{ minWidth: '30rem', marginBottom: '2rem' }}
+          style={{ minWidth: '34.2rem' }}
         />
 
         <S.AgreeWrap>
@@ -83,11 +85,18 @@ const SurveyEnd = () => {
           </S.AgreeDesc>
         </S.AgreeWrap>
 
-        <CustomCheckBox text="동의함" onChange={(e) => handleCheck(e)} />
+        <CustomCheckBox
+          text="동의함"
+          onChange={(e) => handleCheck(e)}
+          style={{
+            maxWidth: '32.2rem',
+            marginTop: '2.4rem',
+          }}
+        />
 
         <S.SubmitBtn onClick={handleSubmit}>
           결과 보러가기
-          <img src="/images/arrow.png" alt="" />
+          {/* <img src="/images/arrow.png" alt="" /> */}
         </S.SubmitBtn>
       </S.FormWrap>
 

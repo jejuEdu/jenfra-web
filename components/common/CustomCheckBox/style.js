@@ -5,13 +5,19 @@ export const StyledLabel = styled.label`
   display: flex;
   align-items: center;
   user-select: none;
+
+  width: 100%;
 `;
 export const StyledInput = styled.input`
   appearance: none;
   border: 1.5px solid ${COLORS.gray_9};
   border-radius: 0.35rem;
-  width: 2rem;
-  height: 2rem;
+  width: 3.2rem;
+  height: 3.2rem;
+  background: #ffffff;
+  box-shadow: 0px 0px 1.5rem rgba(0, 0, 0, 0.1);
+  border-radius: 1.6rem;
+  border: none;
 
   &:checked {
     border-color: transparent;

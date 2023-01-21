@@ -6,27 +6,34 @@ export const CustomSelectWrap = styled.div`
 `;
 
 export const CustomLabel = styled.div`
-  font-size: 2.4rem;
-  font-weight: 700;
-  color: ${COLORS.gray_3};
-  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  line-height: 141%;
+  font-weight: 400;
+  color: #000;
+  margin-bottom: 0.8rem;
+  margin-left: 1.2rem;
 `;
 
 export const CustomSelectStyle = styled.div`
   color: rgba(0, 0, 0, 0.8);
   margin-bottom: 1.5rem;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  font-weight: 500;
-  background: #fff;
-  cursor: pointer;
+  font-weight: 400;
+  background: #ffffff;
+  box-shadow: 0px 0px 1.5rem rgba(0, 0, 0, 0.1);
+  border-radius: 2rem;
+  border: none;
 
   padding: ${(props) =>
-    props.size === 'small' ? '1rem 2rem' : props.size === 'medium' ? '1.5rem 3rem' : '2rem 4rem'};
+    props.size === 'small'
+      ? '1rem 1.3rem'
+      : props.size === 'medium'
+      ? '1.2rem 1.5rem'
+      : '1.4rem 1.8rem'};
   font-size: ${(props) =>
-    props.size === 'small' ? '1.2rem' : props.size === 'medium' ? '1.6rem' : '2.4rem'};
+    props.size === 'small' ? '1.3rem' : props.size === 'medium' ? '1.5rem' : '1.8rem'};
   line-height: ${(props) =>
-    props.size === 'small' ? '1.8rem' : props.size === 'medium' ? '2.4rem' : '3rem'};
-  border-radius: 1rem;
+    props.size === 'small' ? '1.5rem' : props.size === 'medium' ? '1.7rem' : '2rem'};
+  border-radius: 10rem;
 `;
 
 export const SelectWrap = styled.div`
@@ -36,7 +43,7 @@ export const BtnArrow = styled.span`
   width: 0.8rem;
   position: absolute;
   top: 50%;
-  right: 3rem;
+  right: 2rem;
 `;
 export const ArrowImage = styled.img`
   width: 100%;
@@ -46,21 +53,26 @@ export const ArrowImage = styled.img`
 `;
 export const OptionPanel = styled.div`
   position: absolute;
-  bottom: -16rem;
+  bottom: -15rem;
   left: 0;
   width: 100%;
   height: 16rem;
   overflow-x: hidden;
   overflow-y: scroll;
+  background: #ffffff;
+  box-shadow: 0px 0px 1.5rem rgba(0, 0, 0, 0.1);
   border-radius: 1rem;
-  border: 1px solid ${COLORS.gray_c};
-  background: #fff;
+  border: none;
   z-index: 1;
 `;
 export const OptionItem = styled.div`
   padding: ${(props) =>
-    props.size === 'small' ? '1rem 2rem' : props.size === 'medium' ? '1.5rem 3rem' : '2rem 4rem'};
-  font-size: 1.6rem;
+    props.size === 'small'
+      ? '1rem 1.3rem'
+      : props.size === 'medium'
+      ? '1.5rem 1.5rem'
+      : '2rem 1.8rem'};
+  font-size: 1.5rem;
   border-bottom: 1px solid ${COLORS.gray_c};
 
   &:hover {
