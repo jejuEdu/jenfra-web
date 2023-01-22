@@ -9,8 +9,7 @@ import Fourth from './../components/carousel/fourth/index';
 import Fifth from './../components/carousel/fifth/index';
 import Sixth from './../components/carousel/sixth/index';
 import Seventh from '../components/carousel/seventh';
-import { HeaderImg } from '../assets/carouselHeaderImg.png';
-
+import SurveyEnd from '../components/carousel/ServeyEnd';
 import { useState, useEffect, useRef } from 'react';
 
 // 연습용으로 한 파일 안에 모든 코드 다 적어둠.
@@ -27,7 +26,7 @@ const Survey = () => {
   }, [list]);
 
   const handleNext = () => {
-    if (list === 7) {
+    if (list === 8) {
       alert('끝났습니다!');
     } else {
       pageRef.current.style.transition = 'all 0.5s ease-in-out';
@@ -57,9 +56,9 @@ const Survey = () => {
           <div onClick={handleBefore} className="arrow">
             화살표
           </div>
-          <Graph list={list} src={HeaderImg} />
+          <Graph list={list} src={'/imagescarouselHeaderImg.png'} />
         </GraphContainer>
-        {list}/7
+        {list}/8
         <Wrapper ref={pageRef}>
           <First next={handleNext} />
           <Second next={handleNext} />
@@ -68,6 +67,7 @@ const Survey = () => {
           <Fifth next={handleNext} />
           <Sixth next={handleNext} />
           <Seventh next={handleNext} />
+          <SurveyEnd />
         </Wrapper>
       </Container>
       {/* <button onClick={checkList}>check</button> */}
@@ -105,17 +105,22 @@ const GraphContainer = styled.div`
   }
 `;
 
-const Graph = styled.img`
+const Graph = styled.div`
   width: ${({ list }) => (list !== 7 ? `${list * 12}%` : '90%')};
   height: 30px;
   margin-left: 30px;
+  position: relative;
 
   /* background-color: black; */
 
   &::after {
     content: '';
-    width: 40px;
-    height: 57px;
-    background-image: url(HeaderImg);
+    display: block;
+    position: absolute;
+    top: -2rem;
+    right: 0;
+    width: 4rem;
+    height: 5.7rem;
+    background: url('/images/carouselHeaderImg.png') no-repeat 50% 50%;
   }
 `;
