@@ -33,11 +33,11 @@ export const Dimmed = styled.div`
 
 export const Panel = styled.div`
   width: 100%;
-  max-width: 32.4rem;
+  max-width: 34.2rem;
   min-height: 10rem;
   background: #fff;
   border-radius: 0.4rem;
-  padding: 3.5rem 1.5rem 2rem;
+  padding: 3.5rem 2rem 2rem;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -58,8 +58,8 @@ export const CloseIcon = styled.img`
 export const Title = styled.div`
   text-align: center;
   font-weight: 700;
-  font-size: 2rem;
-  line-height: 2.8rem;
+  font-size: 1.8rem;
+  line-height: 2.4rem;
   word-break: keep-all;
 `;
 export const Desc = styled.div`
@@ -71,14 +71,14 @@ export const Desc = styled.div`
   word-break: keep-all;
 `;
 export const ButtonWrap = styled.div`
-  margin-top: 2rem;
+  margin-top: 2.5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
 `;
 export const CancelBtn = styled.div`
   width: 100%;
-  height: 5rem;
+  height: 5.2rem;
   display: flex;
   align-items: center;
   justify-content: center;

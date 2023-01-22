@@ -6,8 +6,11 @@ import CustomInput from '../../common/CustomInput';
 import { ADDRESS_LIST } from '../../../constant/address';
 import CustomCheckBox from '../../common/CustomCheckBox';
 import CustomModal from '../../common/CustomModal';
+import Character from '../../common/Character';
+import { useRouter } from 'next/router';
 
 const SurveyEnd = () => {
+  const router = useRouter();
   const [phoneNumber, setphoneNumber] = useState();
   const [openOptions, setOpenOptions] = useState(false);
   const [address, setAddress] = useState({ id: null, value: '선택' });
@@ -34,8 +37,10 @@ const SurveyEnd = () => {
       setModalTitle('개인정보 수집동의에 체크해주세요!');
       setOpenModal(true);
     }
-
+    console.log(phoneNumber, address);
     // store에 저장된 값과 phoneNumber, address 값을 post합시다!!
+    // post 후에 loading page로 보내주면 됩니다.
+    // router.push("/loading")
   };
 
   const handleOkClick = () => {
@@ -46,6 +51,7 @@ const SurveyEnd = () => {
     <>
       <S.NoticeWrap>
         <S.NoticeTitle>모두 완료했어요!</S.NoticeTitle>
+        <Character />
         <S.NoticeDesc>
           추첨을 통해
           <br />
@@ -61,7 +67,7 @@ const SurveyEnd = () => {
           placeholder="01012345678"
           value={phoneNumber}
           onChange={setphoneNumber}
-          style={{ minWidth: '30rem', marginBottom: '2rem' }}
+          style={{ minWidth: '34.2rem' }}
         />
 
         <CustomSelect
@@ -72,7 +78,7 @@ const SurveyEnd = () => {
           dataList={ADDRESS_LIST}
           openOptions={openOptions}
           onClick={() => setOpenOptions(!openOptions)}
-          style={{ minWidth: '30rem', marginBottom: '2rem' }}
+          style={{ minWidth: '34.2rem' }}
         />
 
         <S.AgreeWrap>
@@ -83,11 +89,18 @@ const SurveyEnd = () => {
           </S.AgreeDesc>
         </S.AgreeWrap>
 
-        <CustomCheckBox text="동의함" onChange={(e) => handleCheck(e)} />
+        <CustomCheckBox
+          text="동의함"
+          onChange={(e) => handleCheck(e)}
+          style={{
+            maxWidth: '32.2rem',
+            marginTop: '2.4rem',
+          }}
+        />
 
         <S.SubmitBtn onClick={handleSubmit}>
           결과 보러가기
-          <img src="/images/arrow.png" alt="" />
+          {/* <img src="/images/arrow.png" alt="" /> */}
         </S.SubmitBtn>
       </S.FormWrap>
 
