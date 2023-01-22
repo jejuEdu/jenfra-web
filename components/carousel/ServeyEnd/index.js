@@ -8,15 +8,17 @@ import CustomCheckBox from '../../common/CustomCheckBox';
 import CustomModal from '../../common/CustomModal';
 import Character from '../../common/Character';
 import { useRouter } from 'next/router';
+import { modalOpenState, modalTitleState } from '../../../recoil/atom';
+import { useRecoilState } from 'recoil';
 
 const SurveyEnd = () => {
   const router = useRouter();
-  const [phoneNumber, setphoneNumber] = useState();
+  const [phoneNumber, setphoneNumber] = useState('');
   const [openOptions, setOpenOptions] = useState(false);
   const [address, setAddress] = useState({ id: null, value: '선택' });
   const [check, setCheck] = useState(false);
-  const [openModal, setOpenModal] = useState(false);
-  const [modalTitle, setModalTitle] = useState('');
+  const [openModal, setOpenModal] = useRecoilState(modalOpenState);
+  const [modalTitle, setModalTitle] = useRecoilState(modalTitleState);
 
   const handleCheck = (e) => {
     setCheck(e.target.checked);
@@ -36,8 +38,9 @@ const SurveyEnd = () => {
     if (!check) {
       setModalTitle('개인정보 수집동의에 체크해주세요!');
       setOpenModal(true);
+      return;
     }
-    console.log(phoneNumber, address);
+    console.log('value!', phoneNumber, address, check);
     // store에 저장된 값과 phoneNumber, address 값을 post합시다!!
     // post 후에 loading page로 보내주면 됩니다.
     // router.push("/loading")
@@ -104,13 +107,14 @@ const SurveyEnd = () => {
         </S.SubmitBtn>
       </S.FormWrap>
 
-      <CustomModal
+      {/* <CustomModal
         isOpen={openModal}
         setIsOpen={() => setOpenModal(!openModal)}
         subject={modalTitle}
         okName="확인"
         okClick={handleOkClick}
-      />
+        style={{ left: '700%' }}
+      /> */}
     </S.Wrapper>
   );
 };

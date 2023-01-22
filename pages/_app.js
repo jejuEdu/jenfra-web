@@ -1,6 +1,7 @@
 import '../styles/reset.css';
 import '../styles/globals.css';
 import Head from 'next/head';
+import { RecoilRoot } from 'recoil';
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -12,7 +13,10 @@ function MyApp({ Component, pageProps }) {
           content="width=device-width, initial-scale=1, maximum-scale=1.0, minimum-scale=1, user-scalable=0"
         />
       </Head>
-      <Component {...pageProps} />
+
+      <RecoilRoot>
+        <Component {...pageProps} />
+      </RecoilRoot>
     </>
   );
 }

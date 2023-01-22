@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import LayoutBase from './LayoutBase';
 
 const LayoutMainWrap = styled.main`
   min-height: 100vh;
@@ -15,7 +16,11 @@ const LayoutMainWrap = styled.main`
 `;
 
 const LayoutMain = ({ children, color }) => {
-  return <LayoutMainWrap color={color}>{children}</LayoutMainWrap>;
+  return (
+    <LayoutBase>
+      <LayoutMainWrap color={color}>{children}</LayoutMainWrap>;
+    </LayoutBase>
+  );
 };
 
 export default LayoutMain;
