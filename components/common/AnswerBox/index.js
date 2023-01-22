@@ -1,12 +1,12 @@
 import * as S from './style';
 
-const AnswerBox = ({ img, subject, desc }) => {
+const AnswerBox = ({ img, subject, desc, next }) => {
   let subjectValue = subject.split('\\n');
   let descValue = desc?.split('\\n');
 
   return (
     <S.Container>
-      <S.AnswerBox>
+      <S.AnswerBox onClick={next}>
         <div>{img && <img src={img} alt="" />}</div>
         <div>
           {desc &&

@@ -1,13 +1,27 @@
+import AnswerBox from '../../common/AnswerBox';
+import QuestionBox from '../../common/QuestionBox';
 import { Wrapper } from './style';
 
 function Second({ next }) {
   return (
-    <Wrapper className="wrapper">
+    <Wrapper>
       <h1>두번째 페이지</h1>
-      <button onClick={next}>선택지1</button>
-      <button onClick={next}>선택지2</button>
-      <button onClick={next}>선택지3</button>
-      <button onClick={next}>선택지4</button>
+      <QuestionBox question="질문 질문 \n \ n 으로 줄넘김 처리" />
+      <AnswerBox
+        next={next}
+        subject="타이틀 타 이틀 타이 틀타이틀"
+        desc="설명설명 설명 설 명설명"
+      />
+      <AnswerBox
+        next={next}
+        subject="타이틀 타 이틀 타이 틀타이틀"
+        desc="설명설명 설명 설 명설명"
+      />
+      <AnswerBox
+        next={next}
+        subject="타이틀 타 이틀 타이 틀타이틀"
+        desc="설명설명 설명 설 명설명"
+      />
     </Wrapper>
   );
 }

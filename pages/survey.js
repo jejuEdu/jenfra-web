@@ -5,13 +5,18 @@ import styled from 'styled-components';
 import First from '../components/carousel/first';
 import Second from '../components/carousel/second';
 import Third from './../components/carousel/third/index';
+import Fourth from './../components/carousel/fourth/index';
+import Fifth from './../components/carousel/fifth/index';
+import Sixth from './../components/carousel/sixth/index';
+import Seventh from '../components/carousel/seventh';
+import { HeaderImg } from '../assets/carouselHeaderImg.png';
 
 import { useState, useEffect, useRef } from 'react';
 
 // 연습용으로 한 파일 안에 모든 코드 다 적어둠.
 // 실제 구현할때는 코드 분리할 예정.
 const Survey = () => {
-  const [list, setList] = useState(0);
+  const [list, setList] = useState(1);
   // 불필요한 랜더링을 유발할 수 있음.
   // redux vs recoil vs zustand -> 결과제출 페이지 데이터관리
   const pageRef = useRef();
@@ -22,17 +27,17 @@ const Survey = () => {
   }, [list]);
 
   const handleNext = () => {
-    pageRef.current.style.transition = 'all 0.5s ease-in-out';
-    pageRef.current.style.transform = `translateX(-${list}00%)`;
-
-    if (list >= 2) {
-      setList(0);
+    if (list === 7) {
+      alert('끝났습니다!');
     } else {
+      pageRef.current.style.transition = 'all 0.5s ease-in-out';
+      pageRef.current.style.transform = `translateX(-${list}00%)`;
       setList(list + 1);
     }
   };
 
   const handleBefore = () => {
+    pageRef.current.style.transform = `translateX(-${list - 2}00%)`;
     setList(list - 1);
   };
 
@@ -42,23 +47,30 @@ const Survey = () => {
 
   return (
     <LayoutSurvey>
-      설문페이지
+      {/* 설문페이지
       <br />
       <Link href="/">
         <a>홈으로 이동</a>
-      </Link>
+      </Link> */}
       <Container>
         <GraphContainer>
-          <Graph list={list} />
+          <div onClick={handleBefore} className="arrow">
+            화살표
+          </div>
+          <Graph list={list} src={HeaderImg} />
         </GraphContainer>
-        {list}/3
+        {list}/7
         <Wrapper ref={pageRef}>
           <First next={handleNext} />
           <Second next={handleNext} />
           <Third next={handleNext} />
+          <Fourth next={handleNext} />
+          <Fifth next={handleNext} />
+          <Sixth next={handleNext} />
+          <Seventh next={handleNext} />
         </Wrapper>
       </Container>
-      <button onClick={handleBefore}>뒤로</button>
+      {/* <button onClick={checkList}>check</button> */}
     </LayoutSurvey>
   );
 };
@@ -79,12 +91,31 @@ const Wrapper = styled.div`
 
 const GraphContainer = styled.div`
   width: 100%;
-  border: 1px solid red;
+  /* border: 1px solid red; */
+  /* text-align: end; */
+  display: flex;
+  /* justify-content: end; */
+  align-items: center;
+
+  .arrow {
+    background-color: red;
+    margin-left: 24px;
+    width: 47px;
+    height: 25px;
+  }
 `;
 
-const Graph = styled.div`
-  width: ${({ list }) => (list !== 3 ? `${list * 3}0%` : '100%')};
-  height: 50px;
+const Graph = styled.img`
+  width: ${({ list }) => (list !== 7 ? `${list * 12}%` : '90%')};
+  height: 30px;
+  margin-left: 30px;
 
-  background-color: red;
+  /* background-color: black; */
+
+  &::after {
+    content: '';
+    width: 40px;
+    height: 57px;
+    background-image: url(HeaderImg);
+  }
 `;

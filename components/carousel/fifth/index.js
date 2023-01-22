@@ -2,10 +2,10 @@ import AnswerBox from '../../common/AnswerBox';
 import QuestionBox from '../../common/QuestionBox';
 import { Wrapper } from './style';
 
-function First({ next }) {
+function Fifth({ next }) {
   return (
     <Wrapper>
-      <h1>첫번째 페이지</h1>
+      <h1>다섯번째 페이지</h1>
       <QuestionBox question="질문 질문 \n \ n 으로 줄넘김 처리" />
       <AnswerBox
         next={next}
@@ -26,4 +26,4 @@ function First({ next }) {
   );
 }
 
-export default First;
+export default Fifth;
