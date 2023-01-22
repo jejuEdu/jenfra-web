@@ -48,7 +48,7 @@ const SurveyEnd = () => {
   };
 
   return (
-    <>
+    <S.Wrapper>
       <S.NoticeWrap>
         <S.NoticeTitle>모두 완료했어요!</S.NoticeTitle>
         <Character />
@@ -111,7 +111,7 @@ const SurveyEnd = () => {
         okName="확인"
         okClick={handleOkClick}
       />
-    </>
+    </S.Wrapper>
   );
 };
 
