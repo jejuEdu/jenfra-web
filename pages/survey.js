@@ -110,6 +110,7 @@ const Graph = styled.div`
   height: 30px;
   margin-left: 30px;
   position: relative;
+  transition: width 0.5s ease-out;
 
   /* background-color: black; */
 
