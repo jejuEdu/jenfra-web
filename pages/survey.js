@@ -1,6 +1,7 @@
 import LayoutSurvey from '../layouts/LayoutSurvey';
 import styled from 'styled-components';
-// import { Image } from 'next/image';
+import { useState, useEffect, useRef } from 'react';
+import { useSetRecoil, useRecoilValue, useRecoilState } from 'recoil';
 
 import First from '../components/carousel/first';
 import Second from '../components/carousel/second';
@@ -10,8 +11,7 @@ import Fifth from './../components/carousel/fifth/index';
 import Sixth from './../components/carousel/sixth/index';
 import Seventh from '../components/carousel/seventh';
 import SurveyEnd from '../components/carousel/ServeyEnd';
-import { useState, useEffect, useRef } from 'react';
-// import arrowImage from '/images/survey_arrow.png';
+import { surveyQuestionBase } from '../recoil/atom';
 
 // 연습용으로 한 파일 안에 모든 코드 다 적어둠.
 // 실제 구현할때는 코드 분리할 예정.
@@ -25,22 +25,33 @@ const Survey = () => {
       setList(1);
     }
   }, [list]);
+  const [resultList, setResultList] = useRecoilState(surveyQuestionBase);
 
-  const handleNext = () => {
+  const handleNext = (question, answer) => {
     if (list === 8) {
       alert('끝났습니다!');
     } else {
       pageRef.current.style.transition = 'all 0.5s ease-in-out';
       pageRef.current.style.transform = `translateX(-${list}00%)`;
       setList(list + 1);
+      setResultList({
+        ...resultList,
+        [question]: answer,
+      });
+      // console.log(question);
+      // console.log(answer);
+      console.log(Object.values(resultList));
     }
   };
 
   const handleBefore = () => {
     pageRef.current.style.transform = `translateX(-${list - 2}00%)`;
-    console.log(list);
     setList(list - 1);
   };
+
+  // recoil 적용 연습
+  const questionBase = useRecoilValue(surveyQuestionBase);
+  console.log(resultList);
 
   return (
     <LayoutSurvey>
@@ -98,7 +109,7 @@ const GraphContainer = styled.div`
 `;
 
 const Graph = styled.div`
-  width: ${({ list }) => (list !== 7 ? `${list * 12}%` : '90%')};
+  width: ${({ list }) => (list !== 8 ? `${list * 11.25}%` : '90%')};
   height: 6rem;
   margin-left: 2.2rem;
   position: relative;
