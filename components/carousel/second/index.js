@@ -6,22 +6,12 @@ function Second({ next }) {
   return (
     <Wrapper>
       <h1>두번째 페이지</h1>
-      <QuestionBox question="질문 질문 \n \ n 으로 줄넘김 처리" />
-      <AnswerBox
-        next={next}
-        subject="타이틀 타 이틀 타이 틀타이틀"
-        desc="설명설명 설명 설 명설명"
-      />
-      <AnswerBox
-        next={next}
-        subject="타이틀 타 이틀 타이 틀타이틀"
-        desc="설명설명 설명 설 명설명"
-      />
-      <AnswerBox
-        next={next}
-        subject="타이틀 타 이틀 타이 틀타이틀"
-        desc="설명설명 설명 설 명설명"
-      />
+      <QuestionBox question="목표를 이루기 위해 내가 가장 먼저 하는 것은?" />
+      <AnswerBox next={next} subject="뭘 하고 싶은지부터 찾아본다." />
+      <AnswerBox next={next} subject="목표를 함께 이룰 사람들을 찾아본다" />
+      <AnswerBox next={next} subject="다른 사람들의 목표를 구경하며 영감을 얻는다. " />{' '}
+      <AnswerBox next={next} subject="확실한 플랜을 세운다." />
+      <AnswerBox next={next} subject="일단 주위에 떠벌린다." />
     </Wrapper>
   );
 }
