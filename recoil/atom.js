@@ -22,4 +22,9 @@ const surveyQuestionBase = atom({
   },
 });
 
-export { modalOpenState, modalTitleState, surveyQuestionBase };
+const surveyValueState = atom({
+  key: 'surveyValueState',
+  default: [],
+});
+
+export { modalOpenState, modalTitleState, surveyQuestionBase, surveyValueState };
