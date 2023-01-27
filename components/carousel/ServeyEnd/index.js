@@ -1,15 +1,22 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useSetRecoilState, useRecoilValue } from 'recoil';
+import { useRouter } from 'next/router';
+import { useMutation } from 'react-query';
+
 import * as S from './style';
+import {
+  loadingSpinnerState,
+  modalOpenState,
+  modalTitleState,
+  surveyValueState,
+} from '../../../recoil/atom';
+import { submitSurveyResultApi } from '../../../apis';
 
 import CustomSelect from '../../common/CustomSelect';
 import CustomInput from '../../common/CustomInput';
 import { ADDRESS_LIST } from '../../../constant/address';
 import CustomCheckBox from '../../common/CustomCheckBox';
-import CustomModal from '../../common/CustomModal';
 import Character from '../../common/Character';
-import { useRouter } from 'next/router';
-import { modalOpenState, modalTitleState } from '../../../recoil/atom';
-import { useRecoilState } from 'recoil';
 
 const SurveyEnd = () => {
   const router = useRouter();
@@ -17,8 +24,21 @@ const SurveyEnd = () => {
   const [openOptions, setOpenOptions] = useState(false);
   const [address, setAddress] = useState({ id: null, value: '선택' });
   const [check, setCheck] = useState(false);
-  const [openModal, setOpenModal] = useRecoilState(modalOpenState);
-  const [modalTitle, setModalTitle] = useRecoilState(modalTitleState);
+  const setOpenModal = useSetRecoilState(modalOpenState);
+  const setModalTitle = useSetRecoilState(modalTitleState);
+  const setLoadingSpinner = useSetRecoilState(loadingSpinnerState);
+  const surveyValue = useRecoilValue(surveyValueState);
+  const submitSurveyResult = useMutation(submitSurveyResultApi, {
+    onSuccess: (res) => {
+      if (res.response.data.code === 400) {
+        setModalTitle(res.response.data.message);
+        setOpenModal(true);
+        return;
+      } else {
+        router.push(`/result/${phoneNumber}`);
+      }
+    },
+  });
 
   const handleCheck = (e) => {
     setCheck(e.target.checked);
@@ -27,6 +47,11 @@ const SurveyEnd = () => {
   const handleSubmit = () => {
     if (!phoneNumber) {
       setModalTitle('핸드폰 번호를 입력해주세요!');
+      setOpenModal(true);
+      return;
+    }
+    if (phoneNumber.length !== 11) {
+      setModalTitle('올바른 핸드폰 번호를 입력해주세요!');
       setOpenModal(true);
       return;
     }
@@ -40,11 +65,28 @@ const SurveyEnd = () => {
       setOpenModal(true);
       return;
     }
-    console.log('value!', phoneNumber, address, check);
-    // store에 저장된 값과 phoneNumber, address 값을 post합시다!!
-    // post 후에 loading page로 보내주면 됩니다.
-    router.push('/loading');
+    if (surveyValue.length < 7) {
+      setModalTitle('모든 설문 항목을 선택해주세요.');
+      setOpenModal(true);
+      return;
+    }
+    let params = {
+      surveyInfo: {
+        surveyResList: surveyValue,
+        address: address.value,
+        phone: phoneNumber,
+      },
+    };
+    submitSurveyResult.mutate(params);
   };
+
+  useEffect(() => {
+    if (submitSurveyResult.isLoading) {
+      setLoadingSpinner(true);
+    } else {
+      setLoadingSpinner(false);
+    }
+  }, [submitSurveyResult.isLoading]);
 
   return (
     <S.Wrapper>
@@ -62,8 +104,9 @@ const SurveyEnd = () => {
         <CustomInput
           size="medium"
           label="핸드폰 번호"
-          type="text"
+          type="tel"
           placeholder="01012345678"
+          maxLength={11}
           value={phoneNumber}
           onChange={setphoneNumber}
           style={{ minWidth: '34.2rem' }}
@@ -97,10 +140,7 @@ const SurveyEnd = () => {
           }}
         />
 
-        <S.SubmitBtn onClick={handleSubmit}>
-          결과 보러가기
-          {/* <img src="/images/arrow.png" alt="" /> */}
-        </S.SubmitBtn>
+        <S.SubmitBtn onClick={handleSubmit}>결과 보러가기</S.SubmitBtn>
       </S.FormWrap>
     </S.Wrapper>
   );
