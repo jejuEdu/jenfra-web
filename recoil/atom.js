@@ -8,6 +8,10 @@ const modalTitleState = atom({
   key: 'modalTitleState',
   default: '',
 });
+const loadingSpinnerState = atom({
+  key: 'loadingSpinnerState',
+  default: false,
+});
 
 const surveyQuestionBase = atom({
   key: 'surveyQuestionBase',
@@ -27,4 +31,10 @@ const surveyValueState = atom({
   default: [],
 });
 
-export { modalOpenState, modalTitleState, surveyQuestionBase, surveyValueState };
+export {
+  modalOpenState,
+  modalTitleState,
+  loadingSpinnerState,
+  surveyQuestionBase,
+  surveyValueState,
+};
