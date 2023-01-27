@@ -41,13 +41,8 @@ const SurveyEnd = () => {
       return;
     }
     console.log('value!', phoneNumber, address, check);
-    // store에 저장된 값과 phoneNumber, address 값을 post합시다!!
-    // post 후에 loading page로 보내주면 됩니다.
-    // router.push("/loading")
-  };
 
-  const handleOkClick = () => {
-    setOpenModal(!openModal);
+    router.push('/loading');
   };
 
   return (
@@ -106,15 +101,6 @@ const SurveyEnd = () => {
           {/* <img src="/images/arrow.png" alt="" /> */}
         </S.SubmitBtn>
       </S.FormWrap>
-
-      {/* <CustomModal
-        isOpen={openModal}
-        setIsOpen={() => setOpenModal(!openModal)}
-        subject={modalTitle}
-        okName="확인"
-        okClick={handleOkClick}
-        style={{ left: '700%' }}
-      /> */}
     </S.Wrapper>
   );
 };
