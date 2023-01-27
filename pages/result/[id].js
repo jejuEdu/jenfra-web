@@ -51,7 +51,6 @@ const Result = () => {
 
   useEffect(() => {
     if (router.query.id) {
-      console.log(router.query.id);
       getResult.mutate({
         phone: router.query.id,
       });

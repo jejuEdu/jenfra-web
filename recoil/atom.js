@@ -1,4 +1,5 @@
 import { atom } from 'recoil';
+import { v1 } from 'uuid';
 
 const modalOpenState = atom({
   key: 'modalOpenState',
@@ -27,7 +28,7 @@ const surveyQuestionBase = atom({
 });
 
 const surveyValueState = atom({
-  key: 'surveyValueState',
+  key: `surveyValue/${v1()}`,
   default: [],
 });
 
