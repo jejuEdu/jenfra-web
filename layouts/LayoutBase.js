@@ -1,10 +1,12 @@
-import { useRecoilState } from 'recoil';
+import { useRecoilState, useRecoilValue } from 'recoil';
 import CustomModal from '../components/common/CustomModal';
-import { modalOpenState, modalTitleState } from '../recoil/atom';
-
+import { loadingSpinnerState, modalOpenState, modalTitleState } from '../recoil/atom';
+import LoadingSpinner from '../components/common/LoadingSpinner';
 const LayoutBase = ({ children }) => {
   const [modalOpen, setModalOpen] = useRecoilState(modalOpenState);
-  const [modalTitle, setModalTitle] = useRecoilState(modalTitleState);
+  const modalTitle = useRecoilValue(modalTitleState);
+  const loadingSpinner = useRecoilValue(loadingSpinnerState);
+
   return (
     <div>
       <div>{children}</div>
@@ -15,6 +17,8 @@ const LayoutBase = ({ children }) => {
         okName="확인"
         okClick={() => setModalOpen(!modalOpen)}
       />
+
+      {loadingSpinner && <LoadingSpinner />}
     </div>
   );
 };

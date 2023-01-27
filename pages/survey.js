@@ -11,13 +11,16 @@ import Fifth from './../components/carousel/fifth/index';
 import Sixth from './../components/carousel/sixth/index';
 import Seventh from '../components/carousel/seventh';
 import SurveyEnd from '../components/carousel/ServeyEnd';
-import { surveyQuestionBase } from '../recoil/atom';
+import { surveyQuestionBase, surveyValueState } from '../recoil/atom';
+import { SURVEY_DATA } from '../constant/survey';
+import SurveyForm from '../components/carousel/SurveyForm';
 
 // 연습용으로 한 파일 안에 모든 코드 다 적어둠.
 // 실제 구현할때는 코드 분리할 예정.
 const Survey = () => {
   const [list, setList] = useState(1);
   const pageRef = useRef();
+  const [surveyValue, setSurveyValue] = useRecoilState(surveyValueState);
 
   useEffect(() => {
     if (list < 1) {
@@ -25,6 +28,7 @@ const Survey = () => {
       setList(1);
     }
   }, [list]);
+
   const [resultList, setResultList] = useRecoilState(surveyQuestionBase);
 
   const handleNext = (question, answer) => {
@@ -34,15 +38,23 @@ const Survey = () => {
       pageRef.current.style.transition = 'all 0.5s ease-in-out';
       pageRef.current.style.transform = `translateX(-${list}00%)`;
       setList(list + 1);
-      setResultList({
-        ...resultList,
-        [question]: answer,
-      });
-      // console.log(question);
-      // console.log(answer);
-      console.log(Object.values(resultList));
+      // setResultList({
+      //   ...resultList,
+      //   [question]: answer,
+      // });
+      // // console.log(question);
+      // // console.log(answer);
+      // console.log(Object.values(resultList));
+      if (surveyValue.length >= question) {
+        let newTitleArray = [...surveyValue];
+        newTitleArray[question] = answer;
+        setSurveyValue(newTitleArray);
+        return;
+      }
+      setSurveyValue([...surveyValue, answer]);
     }
   };
+  console.log('tttt', surveyValue);
 
   const handleBefore = () => {
     pageRef.current.style.transform = `translateX(-${list - 2}00%)`;
@@ -51,7 +63,6 @@ const Survey = () => {
 
   // recoil 적용 연습
   const questionBase = useRecoilValue(surveyQuestionBase);
-  console.log(resultList);
 
   return (
     <LayoutSurvey>
@@ -64,14 +75,17 @@ const Survey = () => {
         </GraphContainer>
         {list}/8
         <Wrapper ref={pageRef}>
-          <First next={handleNext} />
+          {SURVEY_DATA?.map((surveyItem) => (
+            <SurveyForm key={surveyItem.id} surveyItem={surveyItem} next={handleNext} />
+          ))}
+          {/* <First next={handleNext} />
           <Second next={handleNext} />
           <Third next={handleNext} />
           <Fourth next={handleNext} />
           <Fifth next={handleNext} />
           <Sixth next={handleNext} />
-          <Seventh next={handleNext} />
-          <SurveyEnd />
+          <Seventh next={handleNext} /> */}
+          <SurveyEnd resultList={resultList} />
         </Wrapper>
       </Container>
     </LayoutSurvey>

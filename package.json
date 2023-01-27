@@ -11,11 +11,13 @@
     "build-storybook": "build-storybook"
   },
   "dependencies": {
+    "axios": "^1.2.5",
     "babel-plugin-styled-components": "^2.0.7",
     "next": "12.3.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-is": "^18.2.0",
+    "react-query": "^3.39.3",
     "recoil": "^0.7.6",
     "styled-components": "^5.3.6"
   },
