@@ -51,7 +51,6 @@ const Result = () => {
 
   useEffect(() => {
     if (router.query.id) {
-      console.log(router.query.id);
       getResult.mutate({
         phone: router.query.id,
       });
@@ -75,8 +74,13 @@ const Result = () => {
         <Title>제주도민 성장 라이프 둘러보기</Title>
       </TitleWrap>
       <ContentWrap>
-        <ResultQuestionCard index="1" />
-        <ResultQuestionCard index="2" />
+        {resultData.map((question, index) => (
+          <ResultQuestionCard
+            key={'question' + index}
+            index={index}
+            question={question}
+          ></ResultQuestionCard>
+        ))}
       </ContentWrap>
     </LayoutResult>
   );
