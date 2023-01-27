@@ -2,20 +2,20 @@ import { atom } from 'recoil';
 import { v1 } from 'uuid';
 
 const modalOpenState = atom({
-  key: 'modalOpenState',
+  key: `modalOpenState/${v1()}`,
   default: false,
 });
 const modalTitleState = atom({
-  key: 'modalTitleState',
+  key: `modalTitleState/${v1()}`,
   default: '',
 });
 const loadingSpinnerState = atom({
-  key: 'loadingSpinnerState',
+  key: `loadingSpinnerState${v1()}`,
   default: false,
 });
 
 const surveyQuestionBase = atom({
-  key: 'surveyQuestionBase',
+  key: `surveyQuestionBase/${v1()}`,
   default: {
     '2023년 새해, 올해 이것 만큼은 꼭 해보고 싶다!': '',
     '목표를 이루기 위해 내가 가장 먼저 하는 것은?': '',
