@@ -1,17 +1,10 @@
 import LayoutSurvey from '../layouts/LayoutSurvey';
 import styled from 'styled-components';
 import { useState, useEffect, useRef } from 'react';
-import { useSetRecoil, useRecoilValue, useRecoilState } from 'recoil';
-
-import First from '../components/carousel/first';
-import Second from '../components/carousel/second';
-import Third from './../components/carousel/third/index';
-import Fourth from './../components/carousel/fourth/index';
-import Fifth from './../components/carousel/fifth/index';
-import Sixth from './../components/carousel/sixth/index';
-import Seventh from '../components/carousel/seventh';
-import SurveyEnd from '../components/carousel/ServeyEnd';
+import { useRecoilState } from 'recoil';
 import { surveyQuestionBase, surveyValueState } from '../recoil/atom';
+
+import SurveyEnd from '../components/carousel/ServeyEnd';
 import { SURVEY_DATA } from '../constant/survey';
 import SurveyForm from '../components/carousel/SurveyForm';
 
@@ -28,6 +21,7 @@ const Survey = () => {
       setList(1);
     }
   }, [list]);
+
   const [resultList, setResultList] = useRecoilState(surveyQuestionBase);
 
   const handleNext = (question, answer) => {
@@ -37,11 +31,6 @@ const Survey = () => {
       pageRef.current.style.transition = 'all 0.5s ease-in-out';
       pageRef.current.style.transform = `translateX(-${list}00%)`;
       setList(list + 1);
-      // setResultList({
-      //   ...resultList,
-      //   [question]: answer,
-      // });
-      // console.log(Object.values(resultList));
       if (surveyValue.length >= question) {
         let newTitleArray = [...surveyValue];
         newTitleArray[question] = answer;
@@ -51,36 +40,26 @@ const Survey = () => {
       setSurveyValue([...surveyValue, answer]);
     }
   };
+  console.log('tttt', surveyValue);
 
   const handleBefore = () => {
     pageRef.current.style.transform = `translateX(-${list - 2}00%)`;
     setList(list - 1);
   };
 
-  // recoil 적용 연습
-  const questionBase = useRecoilValue(surveyQuestionBase);
-
   return (
     <LayoutSurvey>
       <Container>
-        <GraphContainer>
+        <GraphContainer list={list}>
           <PageBackBtn onClick={handleBefore} />
           <Graph list={list} src={'/imagescarouselHeaderImg.png'}>
             <TopNavigateBorder list={list} />
           </Graph>
         </GraphContainer>
-        {list}/8
         <Wrapper ref={pageRef}>
           {SURVEY_DATA?.map((surveyItem) => (
             <SurveyForm key={surveyItem.id} surveyItem={surveyItem} next={handleNext} />
           ))}
-          {/* <First next={handleNext} />
-          <Second next={handleNext} />
-          <Third next={handleNext} />
-          <Fourth next={handleNext} />
-          <Fifth next={handleNext} />
-          <Sixth next={handleNext} />
-          <Seventh next={handleNext} /> */}
           <SurveyEnd resultList={resultList} />
         </Wrapper>
       </Container>
@@ -94,13 +73,25 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 100vh;
-  overflow-x: hidden;
+  height: 100%;
   padding-top: 3.2rem;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    border-top: 0.3rem dashed black;
+    width: 80vw;
+    height: 0.1rem;
+    position: relative;
+    top: 3.8rem;
+    left: 0;
+    transform: translate(10vh, 0);
+  }
 `;
 
 const Wrapper = styled.div`
-  display: flex;
+  width: 100%;
+  height: 100vh;
 `;
 
 const PageBackBtn = styled.div`
@@ -108,33 +99,43 @@ const PageBackBtn = styled.div`
   height: 2.5rem;
 
   background: url('/images/survey_arrow.png');
+  background-size: cover;
+
   cursor: pointer;
 `;
 
 const GraphContainer = styled.div`
   width: 100%;
+  height: 7rem;
   display: flex;
+  position: relative;
   align-items: center;
-  overflow-x: hidden;
+
+  &::after {
+    content: '${(props) => props.list}/8';
+    width: 50px;
+    height: 50px;
+    position: relative;
+    top: 55px;
+    left: -25px;
+  }
 `;
 
 const Graph = styled.div`
-  width: ${({ list }) => (list !== 8 ? `${list * 11.25}%` : '90%')};
+  width: ${({ list }) => (list !== 8 ? `${list}0%` : '100%')};
   height: 6rem;
   margin-left: 2.2rem;
   position: relative;
-  transition: width 0.5s ease-out;
+  transition: width 0.5s ease-in-out;
 
   display: flex;
   justify-content: start;
   align-items: center;
-  /* border: 1px solid black; */
 
   &::after {
     content: '';
     display: block;
     position: absolute;
-    /* top: -0.5rem; */
     top: 0;
     right: 0;
     width: 4rem;
@@ -145,6 +146,16 @@ const Graph = styled.div`
 
 const TopNavigateBorder = styled.div`
   width: 97%;
-  height: 1px;
+  height: 0.4rem;
   background-color: black;
+`;
+
+const DottedBorder = styled.div`
+  /* float: right; */
+  /* position: relative;
+  top: 100px;
+  left: 0px;
+  width: 97%;
+  height: 1px;
+  border-top: 1px dotted black; */
 `;

@@ -41,7 +41,8 @@ const SurveyEnd = () => {
       return;
     }
     console.log('value!', phoneNumber, address, check);
-
+    // store에 저장된 값과 phoneNumber, address 값을 post합시다!!
+    // post 후에 loading page로 보내주면 됩니다.
     router.push('/loading');
   };
 

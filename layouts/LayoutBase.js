@@ -1,6 +1,7 @@
 import { useRecoilState } from 'recoil';
 import CustomModal from '../components/common/CustomModal';
 import { modalOpenState, modalTitleState } from '../recoil/atom';
+import styled from 'styled-components';
 
 const LayoutBase = ({ children }) => {
   const [modalOpen, setModalOpen] = useRecoilState(modalOpenState);

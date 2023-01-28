@@ -1,8 +1,6 @@
 import AnswerBox from '../../common/AnswerBox';
 import QuestionBox from '../../common/QuestionBox';
 import * as S from './style';
-import { useRecoilState, useRecoilValue } from 'recoil';
-import { surveyListState } from '../../../recoil/atom';
 
 const SurveyForm = ({ surveyItem = {}, next }) => {
   return (

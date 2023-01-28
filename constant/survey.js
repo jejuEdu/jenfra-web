@@ -1,4 +1,4 @@
-const SURVEY_DATA = [
+export const SURVEY_DATA = [
   {
     id: 0,
     question: '2023년 새해, 올해 이것 만큼은 꼭 해보고 싶다!',
@@ -12,7 +12,6 @@ const SURVEY_DATA = [
       { id: 6, subject: '체력, 체력, 체력 ...' },
     ],
   },
-
   {
     id: 1,
     question: '목표를 이루기 위해 내가 가장 먼저 하는 것은?',
@@ -24,7 +23,6 @@ const SURVEY_DATA = [
       { id: 4, subject: '일단 주위에 떠벌린다.' },
     ],
   },
-
   {
     id: 2,
     question: '만약, 내 목표를 누군가와 함께 이룰 수 있다면, 어떤 사람들과 함께 하고 싶나요?',
