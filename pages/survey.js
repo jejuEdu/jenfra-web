@@ -79,12 +79,11 @@ const Container = styled.div`
   &::before {
     content: '';
     border-top: 0.3rem dashed black;
-    width: 80vw;
+    width: calc(100% - 11rem);
     height: 0.1rem;
     position: relative;
     top: 3.8rem;
-    left: 0;
-    transform: translate(10vh, 0);
+    left: 7rem;
   }
 `;
 
