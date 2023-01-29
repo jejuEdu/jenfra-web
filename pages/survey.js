@@ -73,9 +73,8 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 100%;
+
   padding-top: 3.2rem;
-  overflow: hidden;
 
   &::before {
     content: '';
@@ -91,7 +90,8 @@ const Container = styled.div`
 
 const Wrapper = styled.div`
   width: 100%;
-  height: 100vh;
+  height: calc(100vh - 10.6rem);
+  position: relative;
 `;
 
 const PageBackBtn = styled.div`
@@ -145,7 +145,7 @@ const Graph = styled.div`
 `;
 
 const TopNavigateBorder = styled.div`
-  width: 97%;
+  width: 100%;
   height: 0.4rem;
   background-color: black;
 `;

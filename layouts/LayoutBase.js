@@ -1,6 +1,7 @@
 import { useRecoilState, useRecoilValue } from 'recoil';
 import CustomModal from '../components/common/CustomModal';
 import { modalOpenState, modalTitleState, loadingSpinnerState } from '../recoil/atom';
+import LoadingSpinner from '../components/common/LoadingSpinner';
 
 const LayoutBase = ({ children }) => {
   const [modalOpen, setModalOpen] = useRecoilState(modalOpenState);

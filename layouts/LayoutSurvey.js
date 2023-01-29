@@ -11,6 +11,7 @@ const LayoutSurveyWrap = styled.main`
   max-width: 768px;
   margin: 0 auto;
   box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.15);
+  overflow: hidden;
 `;
 
 const LayoutSurvey = ({ children }) => {

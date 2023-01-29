@@ -4,7 +4,7 @@ import { COLORS } from '../../../constant/colors';
 export const Container = styled.div`
   display: flex;
   justify-content: center;
-  margin-bottom: 5.3rem;
+  margin-bottom: 4rem;
 `;
 export const QuestionBox = styled.h1`
   width: 100%;
