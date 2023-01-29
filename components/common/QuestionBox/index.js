@@ -1,10 +1,10 @@
 import * as S from './style';
 
-const QuestionBox = ({ question }) => {
+const QuestionBox = ({ question, id }) => {
   let questionValue = question.split('\\n');
 
   return (
-    <S.Container>
+    <S.Container id={id}>
       <S.QuestionBox>
         {questionValue.map((item) => (
           <p key={item}>
