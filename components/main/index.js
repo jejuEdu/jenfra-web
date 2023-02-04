@@ -6,7 +6,7 @@ const MainContext = createContext();
 const Main = (props) => {
   return (
     <S.Main>
-      <MainContext.Provider value={null}>{props.children}</MainContext.Provider>
+      <MainContext.Provider>{props.children}</MainContext.Provider>
     </S.Main>
   );
 };
@@ -53,10 +53,9 @@ Main.Button = (props) => {
 };
 
 Main.Count = (props) => {
-  const [count, setCount] = useState(0);
   return (
     <S.Count>
-      지금까지 <b>{count}</b> 명이 참여했어요!
+      지금까지 <b>{props.count || 0}</b> 명이 참여했어요!
     </S.Count>
   );
 };
