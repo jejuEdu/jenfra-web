@@ -4,8 +4,6 @@ export const Header = styled.div`
   margin: 5vh;
 `;
 
-export const Body = styled.div``;
-
 export const Footer = styled.div`
   background: white;
   width: 100%;
