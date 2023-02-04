@@ -1,7 +1,7 @@
 import React from 'react';
 import QuestionBox from '.';
 
-import Main from '../../../assets/main.png';
+import Main from '/images/main.png';
 
 // controls 설정
 export default {

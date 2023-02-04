@@ -1,9 +1,5 @@
 import { createContext, useState } from 'react';
 import * as S from './style';
-import Image from 'next/image';
-import MainImg from '../../assets/main.png';
-import StarImg from '../../assets/star.png';
-import Logo from '../../assets/logo.png';
 
 const MainContext = createContext();
 
@@ -39,17 +35,17 @@ Main.Image = (props) => {
   return (
     <S.MainImage>
       <div className="main-img">
-        <Image src={MainImg} alt="메인이미지" />
+        <img src="/images/main.png" alt="메인이미지" />
       </div>
       <div className="animation-img">
-        <Image src={StarImg} alt="움직이는 별" />
+        <img src="/images/star.png" alt="움직이는 별" />
       </div>
     </S.MainImage>
   );
 };
 
 Main.Logo = (props) => {
-  return <Image src={Logo} alt="로고이미지" />;
+  return <img src="/images/logo.png" alt="로고이미지" />;
 };
 
 Main.Button = (props) => {
