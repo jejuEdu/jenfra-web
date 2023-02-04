@@ -8,11 +8,6 @@ const LayoutMainWrap = styled.main`
   margin: 0 auto;
   box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.15);
   background: ${(props) => props.color};
-
-  display: flex; /* flex 셋팅 */
-  justify-content: center; /* 가로, 세로 가운데 정렬 */
-  align-items: center; /* 위, 아래 가운데 정렬 */
-  flex-direction: column; /* 아이템이 흐르는 방향을 위아래로 */
 `;
 
 const LayoutMain = ({ children, color }) => {
