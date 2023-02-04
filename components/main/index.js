@@ -6,7 +6,7 @@ const MainContext = createContext();
 const Main = (props) => {
   return (
     <S.Main>
-      <MainContext.Provider>{props.children}</MainContext.Provider>
+      <MainContext.Provider value={null}>{props.children}</MainContext.Provider>
     </S.Main>
   );
 };

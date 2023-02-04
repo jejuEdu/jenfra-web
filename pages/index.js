@@ -11,11 +11,11 @@ export default function Home() {
         <S.Header>
           <Main.Logo />
         </S.Header>
-        <S.Body>
+        <div>
           <Main.Title />
           <Main.SubTitle />
           <Main.Image />
-        </S.Body>
+        </div>
       </Main>
       <S.Footer>
         <Main.Button />
