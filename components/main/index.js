@@ -14,7 +14,7 @@ const Main = (props) => {
   );
 };
 
-Main.Title = (props) => {
+const Title = (props) => {
   return (
     <S.Title>
       <h1>
@@ -26,7 +26,7 @@ Main.Title = (props) => {
   );
 };
 
-Main.SubTitle = (props) => {
+const SubTitle = (props) => {
   return (
     <S.SubTitle>
       나만의 <b>성장 라이프</b>를 공유해주세요!
@@ -34,7 +34,7 @@ Main.SubTitle = (props) => {
   );
 };
 
-Main.Image = (props) => {
+const Image = (props) => {
   return (
     <S.MainImage>
       <div className="main-img">
@@ -47,11 +47,12 @@ Main.Image = (props) => {
   );
 };
 
-Main.Logo = (props) => {
+const Logo = (props) => {
   return <img src="/images/logo.png" alt="로고이미지" />;
 };
 
-Main.Button = (props) => {
+/* eslint-disable-line */
+const Button = (props) => {
   const router = useRouter();
   return (
     <S.Button
@@ -66,7 +67,8 @@ Main.Button = (props) => {
   );
 };
 
-Main.Count = (props) => {
+/* eslint-disable-line */
+const Count = (props) => {
   const { data } = useQuery('', () => getCount(), { refetchInterval: 2000 });
   return (
     <S.Count>
@@ -74,6 +76,13 @@ Main.Count = (props) => {
     </S.Count>
   );
 };
+
+Main.Title = Title;
+Main.SubTitle = SubTitle;
+Main.Image = Image;
+Main.Logo = Logo;
+Main.Button = Button;
+Main.Count = Count;
 
 Main.Title.displayName = 'MainTitle';
 Main.SubTitle.displayName = 'SubTitle';
