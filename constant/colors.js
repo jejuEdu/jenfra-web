@@ -6,4 +6,5 @@ export const COLORS = {
   gray_c: '#ccc',
   gray_ef: '#efefef',
   bg: '#faf6f2',
+  mainbg: '#E47B00',
 };
