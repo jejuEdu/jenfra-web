@@ -1,5 +1,4 @@
 import React from 'react';
-
 import Main from './index';
 
 export default {
@@ -14,7 +13,6 @@ Default.args = {
   children: (
     <>
       <Main.Title />
-      {/*<Main.Image />*/}
       <Main.Button />
     </>
   ),

@@ -15,3 +15,10 @@ export const submitSurveyResultApi = (body) => {
     data: body,
   });
 };
+
+export const getCount = () => {
+  return request({
+    method: 'GET',
+    url: '/survey/count',
+  });
+};
