@@ -1,5 +1,8 @@
 import { createContext, useState } from 'react';
 import * as S from './style';
+import { useRouter } from 'next/router';
+import { getCount } from '../../apis';
+import { useQuery } from 'react-query';
 
 const MainContext = createContext();
 
@@ -49,13 +52,25 @@ Main.Logo = (props) => {
 };
 
 Main.Button = (props) => {
-  return <S.Button>설문에 참여하기</S.Button>;
+  const router = useRouter();
+  return (
+    <S.Button
+      onClick={() =>
+        router.push({
+          pathname: '/survey',
+        })
+      }
+    >
+      설문에 참여하기
+    </S.Button>
+  );
 };
 
 Main.Count = (props) => {
+  const { data } = useQuery('', () => getCount(), { refetchInterval: 2000 });
   return (
     <S.Count>
-      지금까지 <b>{props.count || 0}</b> 명이 참여했어요!
+      지금까지 <b>{data?.countParticipants || 0}</b> 명이 참여했어요!
     </S.Count>
   );
 };
