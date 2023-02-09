@@ -18,7 +18,7 @@ const Title = (props) => {
   return (
     <S.Title>
       <h1>
-        제주도민<font color="white">만 아는</font>
+        제주도민<font color="white">만 아는?!</font>
         <br />
         <font color="white">진짜</font> 제주 이야기
       </h1>
