@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-axios.defaults.baseURL = 'http://3.89.74.140/api';
+axios.defaults.baseURL = 'http://15.165.97.5/api';
 
 const request = async (config) => {
   try {
