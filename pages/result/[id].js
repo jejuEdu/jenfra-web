@@ -44,6 +44,33 @@ const ContentWrap = styled.div`
   overflow-x: hidden;
   overflow-y: scroll;
 `;
+const BottomShare = styled.div`
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 5.6rem;
+  padding: 1.64rem 0;
+  background: #000;
+  border-radius: 2rem 2rem 0px 0px;
+  filter: drop-shadow(0px 0px 15px rgba(0, 0, 0, 0.25));
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-weight: 700;
+  font-size: 1.8rem;
+  line-height: 141%;
+  div {
+    width: 100%;
+    text-align: center;
+
+    &:first-child {
+      border-right: solid 1px #fff;
+    }
+  }
+`;
 
 const Result = () => {
   const router = useRouter();
@@ -59,11 +86,16 @@ const Result = () => {
 
   const getResult = useMutation(getResultApi, {
     onSuccess: (res) => {
-      console.log(res);
       setResultData(res.surVeyAr);
     },
   });
-
+  const handleCopyClipBoard = async (text) => {
+    try {
+      await navigator.clipboard.writeText(text);
+    } catch (error) {
+      console.error(error);
+    }
+  };
   if (resultData.length === 0) return <LoadingItem />;
 
   return (
@@ -82,6 +114,11 @@ const Result = () => {
           ></ResultQuestionCard>
         ))}
       </ContentWrap>
+
+      <BottomShare>
+        <div onClick={() => handleCopyClipBoard(window.location.origin)}>설문 공유하기</div>
+        <div onClick={() => handleCopyClipBoard(window.location.href)}>결과 공유하기</div>
+      </BottomShare>
     </LayoutResult>
   );
 };
