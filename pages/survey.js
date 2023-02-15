@@ -8,6 +8,7 @@ import SurveyEnd from '../components/carousel/ServeyEnd';
 import { SURVEY_DATA } from '../constant/survey';
 import SurveyForm from '../components/carousel/SurveyForm';
 import { useRouter } from 'next/router';
+import CustomHead from '../components/common/CustomHead';
 
 // 연습용으로 한 파일 안에 모든 코드 다 적어둠.
 // 실제 구현할때는 코드 분리할 예정.
@@ -51,6 +52,12 @@ const Survey = () => {
 
   return (
     <LayoutSurvey>
+      <CustomHead
+        title="Jenfra:: 제주도민 성장을 위한 첫 걸음"
+        description="나만의 성장 라이프를 공유해주세요!"
+        url={window.location.origin}
+        image="/images/og-img-home.png"
+      />
       <Container>
         <GraphContainer list={list}>
           <PageBackBtn onClick={handleBefore} />
