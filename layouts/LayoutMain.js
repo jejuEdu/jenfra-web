@@ -8,12 +8,13 @@ const LayoutMainWrap = styled.main`
   margin: 0 auto;
   box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.15);
   background: ${(props) => props.color};
+  position: relative;
 `;
 
 const LayoutMain = ({ children, color }) => {
   return (
     <LayoutBase>
-      <LayoutMainWrap color={color}>{children}</LayoutMainWrap>;
+      <LayoutMainWrap color={color}>{children}</LayoutMainWrap>
     </LayoutBase>
   );
 };
