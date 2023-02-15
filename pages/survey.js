@@ -55,7 +55,7 @@ const Survey = () => {
       <CustomHead
         title="Jenfra:: 제주도민 성장을 위한 첫 걸음"
         description="나만의 성장 라이프를 공유해주세요!"
-        url={window.location.origin}
+        url="http://52.79.181.113:3000"
         image="/images/og-img-home.png"
       />
       <Container>
