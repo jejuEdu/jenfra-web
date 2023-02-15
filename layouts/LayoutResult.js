@@ -12,6 +12,7 @@ const LayoutResultWrap = styled.main`
   background-repeat: no-repeat;
   background-position: 0 100%;
   background-size: 100%;
+  position: relative;
 `;
 
 const LayoutResult = ({ children, bgColor }) => {
