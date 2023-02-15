@@ -9,7 +9,7 @@ const SurveyForm = ({ surveyItem = {}, next }) => {
       let questionBoxHeight = document.getElementById('questionBox' + surveyItem.id).clientHeight;
       document.getElementById(
         'answerScrollHeight' + surveyItem.id,
-      ).style.height = `calc(100vh - 20rem - ${questionBoxHeight}px)`;
+      ).style.height = `calc(var(--vh, 1vh) * 100 - 20rem - ${questionBoxHeight}px)`;
       console.log(document.getElementById('answerScrollHeight'));
     }
   }, [surveyItem.id]);
