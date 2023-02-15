@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import LayoutBase from './LayoutBase';
 
 const LayoutResultWrap = styled.main`
-  min-height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
   width: 100%;
   max-width: 768px;
   margin: 0 auto;

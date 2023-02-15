@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const LoadingSpinner = styled.div`
   width: 100%;
-  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
   background: rgba(0, 0, 0, 0.2);
   position: fixed;
   top: 0;
