@@ -8,6 +8,7 @@ import ResultQuestionCard from '../../components/result/ResultQuestionCard';
 import { getResultApi } from '../../apis';
 import { useEffect, useState } from 'react';
 import LoadingItem from '../../components/common/LoadingItem';
+import CustomHead from '../../components/common/CustomHead';
 
 const TitleWrap = styled.div`
   padding: 4.2rem 0;
@@ -90,16 +91,25 @@ const Result = () => {
     },
   });
   const handleCopyClipBoard = async (text) => {
-    try {
-      await navigator.clipboard.writeText(text);
-    } catch (error) {
-      console.error(error);
-    }
+    let currentUrl = text;
+    let t = document.createElement('textarea');
+    document.body.appendChild(t);
+    t.value = currentUrl;
+    t.select();
+    document.execCommand('copy');
+    document.body.removeChild(t);
   };
+
   if (resultData.length === 0) return <LoadingItem />;
 
   return (
     <LayoutResult bgColor={COLORS.point}>
+      <CustomHead
+        title="Jenfra:: 제주도민 성장 라이프 둘러보기"
+        description="제주도민 성장 라이프 둘러보기"
+        url={`http://52.79.181.113:3000/${router.asPath}`}
+        image="/images/og-img-result.png"
+      />
       <TitleWrap>
         <Logo>JEJU x INFRA</Logo>
         <Slogun>제주도민 성장을 위한 첫 걸음</Slogun>

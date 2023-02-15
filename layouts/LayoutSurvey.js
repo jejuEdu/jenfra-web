@@ -1,6 +1,4 @@
 import styled from 'styled-components';
-import Footer from '../components/Footer';
-import Header from '../components/Header';
 import { COLORS } from '../constant/colors';
 import LayoutBase from './LayoutBase';
 

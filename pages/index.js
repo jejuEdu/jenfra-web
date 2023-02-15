@@ -3,10 +3,17 @@ import LayoutMain from '../layouts/LayoutMain';
 import Main from '../components/main';
 import { COLORS } from '../constant/colors';
 import * as S from '../styles/style';
+import CustomHead from '../components/common/CustomHead';
 
 export default function Home() {
   return (
     <LayoutMain color={COLORS.mainbg}>
+      <CustomHead
+        title="Jenfra:: 제주도민 성장을 위한 첫 걸음"
+        description="나만의 성장 라이프를 공유해주세요!"
+        url="http://52.79.181.113:3000"
+        image="/images/og-img-home.png"
+      />
       <Main>
         <S.Header>
           <Main.Logo />
