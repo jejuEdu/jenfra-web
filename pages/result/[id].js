@@ -8,6 +8,7 @@ import ResultQuestionCard from '../../components/result/ResultQuestionCard';
 import { getResultApi } from '../../apis';
 import { useEffect, useState } from 'react';
 import LoadingItem from '../../components/common/LoadingItem';
+import CustomHead from '../../components/common/CustomHead';
 
 const TitleWrap = styled.div`
   padding: 4.2rem 0;
@@ -103,6 +104,12 @@ const Result = () => {
 
   return (
     <LayoutResult bgColor={COLORS.point}>
+      <CustomHead
+        title="Jenfra:: 제주도민 성장 라이프 둘러보기"
+        description="제주도민 성장 라이프 둘러보기"
+        url={window.location.href}
+        image="/images/og-img-result.png"
+      />
       <TitleWrap>
         <Logo>JEJU x INFRA</Logo>
         <Slogun>제주도민 성장을 위한 첫 걸음</Slogun>
