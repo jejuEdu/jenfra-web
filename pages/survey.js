@@ -7,18 +7,20 @@ import { surveyQuestionBase, surveyValueState } from '../recoil/atom';
 import SurveyEnd from '../components/carousel/ServeyEnd';
 import { SURVEY_DATA } from '../constant/survey';
 import SurveyForm from '../components/carousel/SurveyForm';
+import { useRouter } from 'next/router';
 
 // 연습용으로 한 파일 안에 모든 코드 다 적어둠.
 // 실제 구현할때는 코드 분리할 예정.
 const Survey = () => {
-  const [list, setList] = useState(1);
   const pageRef = useRef();
+  const router = useRouter();
+  const [list, setList] = useState(1);
   const [surveyValue, setSurveyValue] = useRecoilState(surveyValueState);
 
   useEffect(() => {
     if (list < 1) {
-      alert('첫번째 페이지 입니다.');
       setList(1);
+      router.push('/');
     }
   }, [list]);
 
@@ -26,7 +28,7 @@ const Survey = () => {
 
   const handleNext = (question, answer) => {
     if (list === 8) {
-      alert('끝났습니다!');
+      // alert('끝났습니다!');
     } else {
       pageRef.current.style.transition = 'all 0.5s ease-in-out';
       pageRef.current.style.transform = `translateX(-${list}00%)`;
