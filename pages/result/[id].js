@@ -36,7 +36,8 @@ const Title = styled.h1`
   margin-top: 1.6rem;
 `;
 const ContentWrap = styled.div`
-  height: calc(100vh - 17.4rem);
+  height: calc(var(--vh, 1vh) * 100 - 17.4rem);
+
   margin: 0 1.2rem;
   padding: 3.2rem 1.2rem;
   background: rgba(255, 255, 255, 0.6);

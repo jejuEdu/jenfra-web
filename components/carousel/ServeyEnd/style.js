@@ -3,7 +3,7 @@ import { COLORS } from '../../../constant/colors';
 
 export const Scroll = styled.div`
   width: 100%;
-  height: calc(100vh - 10.6rem);
+  height: calc(var(--vh, 1vh) * 100- 10.6rem);
   position: absolute;
   top: 0;
   left: 700%;

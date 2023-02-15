@@ -98,7 +98,7 @@ const Container = styled.div`
 
 const Wrapper = styled.div`
   width: 100%;
-  height: calc(100vh - 10.6rem);
+  height: calc(var(--vh, 1vh) * 100 - 10.6rem);
   position: relative;
 `;
 
