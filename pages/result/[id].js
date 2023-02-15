@@ -90,12 +90,15 @@ const Result = () => {
     },
   });
   const handleCopyClipBoard = async (text) => {
-    try {
-      await navigator.clipboard.writeText(text);
-    } catch (error) {
-      console.error(error);
-    }
+    let currentUrl = text;
+    let t = document.createElement('textarea');
+    document.body.appendChild(t);
+    t.value = currentUrl;
+    t.select();
+    document.execCommand('copy');
+    document.body.removeChild(t);
   };
+
   if (resultData.length === 0) return <LoadingItem />;
 
   return (
