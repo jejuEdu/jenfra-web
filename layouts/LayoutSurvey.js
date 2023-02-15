@@ -3,7 +3,7 @@ import { COLORS } from '../constant/colors';
 import LayoutBase from './LayoutBase';
 
 const LayoutSurveyWrap = styled.main`
-  min-height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
   width: 100%;
   background: ${COLORS.bg};
   max-width: 768px;

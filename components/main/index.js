@@ -69,7 +69,7 @@ const Button = (props) => {
 
 /* eslint-disable-line */
 const Count = (props) => {
-  const { data } = useQuery('', () => getCount(), { refetchInterval: 2000 });
+  const { data } = useQuery('', () => getCount());
   return (
     <S.Count>
       지금까지 <b>{data?.countParticipants || 0}</b> 명이 참여했어요!

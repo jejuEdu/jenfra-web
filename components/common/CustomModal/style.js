@@ -20,14 +20,14 @@ export const ModalWrap = styled.div`
   top: 0;
   left: 0;
   width: 100%;
-  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
   z-index: 100;
   animation: ${(props) => (props.isOpen ? fadeIn : fadeOut)} 0.6s ease-out;
 `;
 
 export const Dimmed = styled.div`
   width: 100%;
-  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
   background: rgba(0, 0, 0, 0.15);
 `;
 

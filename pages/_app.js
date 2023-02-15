@@ -4,6 +4,7 @@ import Head from 'next/head';
 import { RecoilRoot } from 'recoil';
 import { ReactQueryDevtools } from 'react-query/devtools';
 import { QueryClient, QueryClientProvider } from 'react-query';
+import { useEffect } from 'react';
 
 function MyApp({ Component, pageProps }) {
   const client = new QueryClient({
@@ -12,6 +13,15 @@ function MyApp({ Component, pageProps }) {
         refetchOnWindowFocus: false,
       },
     },
+  });
+
+  function setScreenSize() {
+    let vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+  }
+
+  useEffect(() => {
+    setScreenSize();
   });
 
   return (
