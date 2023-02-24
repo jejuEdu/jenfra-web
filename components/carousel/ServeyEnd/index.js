@@ -101,7 +101,7 @@ const SurveyEnd = () => {
             <br />
             스타벅스 커피 쿠폰을 보내드립니다.
           </S.NoticeDesc>
-          <S.ReleaseDate>당첨자 발표일: 2023.02.15</S.ReleaseDate>
+          <S.ReleaseDate>당첨자 발표일: 2023.04.10</S.ReleaseDate>
         </S.NoticeWrap>
         <S.FormWrap>
           <CustomInput
