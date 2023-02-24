@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-axios.defaults.baseURL = 'http://15.165.97.5/api';
+axios.defaults.baseURL = 'https://15.165.97.5/api';
 
 const request = async (config) => {
   try {
@@ -8,7 +8,6 @@ const request = async (config) => {
       ...config,
       headers: {
         ContentType: 'application/json',
-        // ContentSecurityPolicy: 'upgrade-insecure-requests',
       },
     });
     return response.data;
