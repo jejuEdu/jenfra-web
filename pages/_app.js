@@ -33,7 +33,6 @@ function MyApp({ Component, pageProps }) {
           name="viewport"
           content="width=device-width, initial-scale=1, maximum-scale=1.0, minimum-scale=1, user-scalable=0"
         />
-        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"></meta>
         <meta name="robots" content="index,follow"></meta>
         <script defer src="https://cdn.swygbro.com/public/widget/swyg-widget.js"></script>
       </Head>
