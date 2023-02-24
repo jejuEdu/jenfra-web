@@ -30,8 +30,8 @@ const SurveyEnd = () => {
   const surveyValue = useRecoilValue(surveyValueState);
   const submitSurveyResult = useMutation(submitSurveyResultApi, {
     onSuccess: (res) => {
-      if (res.code === 200) {
-        router.push(`/result/${phoneNumber}`);
+      if (res.code === 200 && res.cryptoPhone) {
+        router.push(`/result/${res.cryptoPhone}`);
       }
       if (res.response.data.code === 400) {
         setModalTitle(res.response.data.message);
