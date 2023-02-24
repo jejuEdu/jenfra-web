@@ -11,7 +11,7 @@ export default function Home() {
       <CustomHead
         title="Jenfra:: 제주도민 성장을 위한 첫 걸음"
         description="나만의 성장 라이프를 공유해주세요!"
-        url="http://52.79.181.113:3000"
+        url={`${process.env.URL}`}
         image="/images/og-img-home.png"
       />
       <Main>

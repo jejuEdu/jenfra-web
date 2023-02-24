@@ -108,7 +108,7 @@ const Result = () => {
       <CustomHead
         title="Jenfra:: 제주도민 성장 라이프 둘러보기"
         description="제주도민 성장 라이프 둘러보기"
-        url={`http://52.79.181.113:3000/${router.asPath}`}
+        url={`${process.env.URL}/${router.asPath}`}
         image="/images/og-img-result.png"
       />
       <TitleWrap>
