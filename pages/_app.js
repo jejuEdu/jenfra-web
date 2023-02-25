@@ -5,6 +5,7 @@ import { RecoilRoot } from 'recoil';
 import { ReactQueryDevtools } from 'react-query/devtools';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { useEffect } from 'react';
+import Script from 'next/script';
 
 function MyApp({ Component, pageProps }) {
   const client = new QueryClient({
@@ -23,7 +24,7 @@ function MyApp({ Component, pageProps }) {
   useEffect(() => {
     setScreenSize();
   });
-
+  console.log(process.env.NEXT_PUBLIC_GA_ID);
   return (
     <QueryClientProvider client={client}>
       {/* {process.env.NODE_ENV !== 'production' ? <ReactQueryDevtools initialIsOpen={false} /> : null} */}
@@ -34,8 +35,26 @@ function MyApp({ Component, pageProps }) {
           content="width=device-width, initial-scale=1, maximum-scale=1.0, minimum-scale=1, user-scalable=0"
         />
         <meta name="robots" content="index,follow"></meta>
-        <script defer src="https://cdn.swygbro.com/public/widget/swyg-widget.js"></script>
+        <meta
+          name="google-site-verification"
+          content="QrjqDdTkGxjY5kmv-HIhdrbiAdFqqXZnPY0Q2N_qkYU"
+        />
       </Head>
+
+      <Script defer src="https://cdn.swygbro.com/public/widget/swyg-widget.js"></Script>
+      <Script
+        async
+        src="https://www.googletagmanager.com/gtag/js?id=%process.env.NEXT_PUBLIC_GA_ID%"
+      ></Script>
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){window.dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}');
+          `}
+      </Script>
 
       <RecoilRoot>
         <Component {...pageProps} />
