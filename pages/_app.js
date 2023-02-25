@@ -34,6 +34,10 @@ function MyApp({ Component, pageProps }) {
           content="width=device-width, initial-scale=1, maximum-scale=1.0, minimum-scale=1, user-scalable=0"
         />
         <meta name="robots" content="index,follow"></meta>
+        <meta
+          name="google-site-verification"
+          content="QrjqDdTkGxjY5kmv-HIhdrbiAdFqqXZnPY0Q2N_qkYU"
+        />
         <script defer src="https://cdn.swygbro.com/public/widget/swyg-widget.js"></script>
       </Head>
 
