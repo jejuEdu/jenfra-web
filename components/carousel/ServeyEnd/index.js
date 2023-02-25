@@ -33,10 +33,22 @@ const SurveyEnd = () => {
       if (res.code === 200 && res.cryptoPhone) {
         router.push(`/result/${res.cryptoPhone}`);
       }
+      if (res.code === 201) {
+        setModalTitle(res.message);
+        setOpenModal(true);
+      }
+      if (res.code === 202) {
+        setModalTitle(res.message);
+        setOpenModal(true);
+      }
       if (res.response.data.code === 400) {
         setModalTitle(res.response.data.message);
         setOpenModal(true);
         return;
+      }
+      if (res.code === 203 || res.response.data.code === 500) {
+        setModalTitle('알 수 없는 에러가 발생했습니다. 다시 시도해주세요.');
+        setOpenModal(true);
       }
     },
   });
