@@ -43,7 +43,7 @@ const Survey = () => {
       setSurveyValue([...surveyValue, answer]);
     }
   };
-  console.log('tttt', surveyValue);
+  // console.log('tttt', surveyValue);
 
   const handleBefore = () => {
     pageRef.current.style.transform = `translateX(-${list - 2}00%)`;

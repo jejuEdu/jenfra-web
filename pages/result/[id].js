@@ -91,6 +91,7 @@ const Result = () => {
       setResultData(res.surVeyAr);
     },
   });
+
   const handleCopyClipBoard = async (text) => {
     let currentUrl = text;
     let t = document.createElement('textarea');
@@ -99,6 +100,7 @@ const Result = () => {
     t.select();
     document.execCommand('copy');
     document.body.removeChild(t);
+    alert('URL 복사가 완료되었습니다.');
   };
 
   if (resultData.length === 0) return <LoadingItem />;
