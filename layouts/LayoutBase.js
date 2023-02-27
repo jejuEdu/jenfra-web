@@ -11,15 +11,6 @@ const LayoutBase = ({ children }) => {
 
   return (
     <div>
-      <div>{children}</div>
-
-      <CustomModal
-        isOpen={modalOpen}
-        subject={modalTitle}
-        okName="확인"
-        okClick={() => setModalOpen(!modalOpen)}
-      />
-
       {/* 광고 영역 */}
       <div style={{ textAlign: 'center' }}>
         <Script
@@ -35,6 +26,14 @@ const LayoutBase = ({ children }) => {
         ></ins>
         <Script>{`(adsbygoogle = window.adsbygoogle || []).push({});`}</Script>
       </div>
+      <div>{children}</div>
+
+      <CustomModal
+        isOpen={modalOpen}
+        subject={modalTitle}
+        okName="확인"
+        okClick={() => setModalOpen(!modalOpen)}
+      />
 
       {loadingSpinner && <LoadingSpinner />}
     </div>
