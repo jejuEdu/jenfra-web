@@ -10,12 +10,12 @@ const CustomHead = ({ title, description, url, image }) => {
         name="keywords"
         content="젠프라, 제주, 제주도, 인프라, 설문, 제주 이야기, 제주도민, 취미, 성향, 그룹활동, 스터디, 성장, 성장라이프, 라이프스타일"
       />
-      <meta name="og:site_name" content={title} />
-      <meta name="og:title" content={title} />
-      <meta name="og:description" content={description} />
-      <meta name="og:type" content="website" />
-      <meta name="og:url" content={url} />
-      <meta name="og:image" content={image} />
+      <meta property="og:site_name" content={title} />
+      <meta property="og:title" content={title} />
+      <meta property="og:description" content={description} />
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content={url} />
+      <meta property="og:image" content={image} />
       <meta name="twitter:title" content={title} />
       <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
       <link rel="shortcut icon" href="/images/shortcut-icon.png" />
