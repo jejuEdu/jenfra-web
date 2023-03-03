@@ -37,7 +37,7 @@ export const SURVEY_DATA = [
     id: 3,
     question: '이럴 때 의지가 불타오른다.',
     value: [
-      { id: 1, subject: '누군가 철저하 관리/감독해줄 때' },
+      { id: 1, subject: '누군가 철저히 관리/감독해줄 때' },
       { id: 2, subject: '혼자가 아닌 나, 동료와 함께 할 때' },
       { id: 3, subject: '돈 받을 때..' },
       { id: 4, subject: '다른 사람에게 관심과 응원을 받을 때' },
