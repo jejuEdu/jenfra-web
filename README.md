@@ -4,8 +4,7 @@
 
 본 repo는 JENFRA 홈페이지를 서비스 중입니다.
 
-- 도메인
-  - [https://](https://jenfra.swygbro.com/)
+ [▶ 젠프라 설문조사 하러가기](https://jenfra.swygbro.com/)
 
 ## 목차
 
